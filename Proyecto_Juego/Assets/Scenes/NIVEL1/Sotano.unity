@@ -153,11 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fba0f6c44a623d4e8c0dc3755924862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetollave: {fileID: 0}
-  colliderPuerta: {fileID: 0}
-  panel: {fileID: 0}
+  objetollave: {fileID: 26532367}
+  colliderPuerta: {fileID: 763017065}
+  panel: {fileID: 1716255318}
   pausa: 0
-  objetoMenuPauda: {fileID: 0}
 --- !u!212 &26532369
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2637,9 +2636,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objetollave: {fileID: 0}
   colliderPuerta: {fileID: 0}
-  panel: {fileID: 0}
-  pausa: 0
-  objetoMenuPauda: {fileID: 0}
+  panel: {fileID: 1716255318}
+  pausa: 1
 --- !u!1 &935759251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,7 +2806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &978970485
 RectTransform:
   m_ObjectHideFlags: 0
