@@ -50,4 +50,9 @@ public class CODIGO_PAUSA : MonoBehaviour
     { 
         SceneManager.LoadScene(NombreMenu);
     }
+
+    public void Ajuste()
+    {
+
+    }
 }
