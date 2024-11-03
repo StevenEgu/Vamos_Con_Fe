@@ -10,6 +10,8 @@ TagManager:
   - NIVEL3
   - Safe
   - NIVEL4
+  - Objeto_Inventario
+  - Controlador
   layers:
   - Default
   - TransparentFX

@@ -25,4 +25,6 @@ public class MOVIMIENTOJUGADOR : MonoBehaviour
     {
         playerRb.MovePosition(playerRb.position + moveInput * speed * Time.fixedDeltaTime);
     }
+
+
 }
