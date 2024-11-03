@@ -12,6 +12,8 @@ TagManager:
   - NIVEL4
   - Objeto_Inventario
   - Controlador
+  - Habitacion
+  - Jardin
   layers:
   - Default
   - TransparentFX

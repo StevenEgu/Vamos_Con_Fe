@@ -7116,6 +7116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OIP (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 932673463780805881, guid: b5abae008ab42a34fb2e6f12377f502b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3809198599663184334, guid: b5abae008ab42a34fb2e6f12377f502b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24.18
