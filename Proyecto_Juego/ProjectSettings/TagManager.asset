@@ -14,6 +14,8 @@ TagManager:
   - Controlador
   - Habitacion
   - Jardin
+  - Pasillo
+  - Salon
   layers:
   - Default
   - TransparentFX
