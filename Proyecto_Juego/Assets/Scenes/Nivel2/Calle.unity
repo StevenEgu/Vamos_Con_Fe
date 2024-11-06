@@ -132,8 +132,8 @@ GameObject:
   m_Component:
   - component: {fileID: 16026204}
   - component: {fileID: 16026203}
-  - component: {fileID: 16026202}
   - component: {fileID: 16026201}
+  - component: {fileID: 16026206}
   - component: {fileID: 16026200}
   - component: {fileID: 16026205}
   m_Layer: 6
@@ -215,19 +215,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.95}
   m_EdgeRadius: 0
---- !u!114 &16026202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 16026199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b16cd27e9ce0ed43ae03966fefd062b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!212 &16026203
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -307,6 +294,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c592e56d709f1449adbf348f127b5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &16026206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16026199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db252b68508554142a5da52228eb97d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1 &37458898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1294,7 @@ Transform:
   m_GameObject: {fileID: 412810503}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 63.23, y: -9.02, z: 0}
+  m_LocalPosition: {x: 3.61, y: -4.91, z: 0}
   m_LocalScale: {x: 1.5306412, y: 1.5306412, z: 1.5306412}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1356,7 +1356,6 @@ GameObject:
   - component: {fileID: 424749780}
   - component: {fileID: 424749779}
   - component: {fileID: 424749778}
-  - component: {fileID: 424749777}
   m_Layer: 0
   m_Name: Enemigo2
   m_TagString: Untagged
@@ -1364,27 +1363,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &424749777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424749776}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d602a2c223fc7da4183d3a222ef1529e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radioBusqueda: 7
-  capaJugador:
-    serializedVersion: 2
-    m_Bits: 64
-  transformJugador: {fileID: 16026204}
-  velocidadMovimiento: 2
-  distanciaMaxima: 10
-  puntoInicial: {x: 29, y: -3.57, z: 0}
-  estadoActual: 0
 --- !u!61 &424749778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1491,7 +1469,7 @@ Transform:
   m_GameObject: {fileID: 424749776}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29, y: -3.57, z: 0}
+  m_LocalPosition: {x: 56.05, y: -3.57, z: 0}
   m_LocalScale: {x: 0.205939, y: 0.205939, z: 0.205939}
   m_ConstrainProportionsScale: 0
   m_Children: []
