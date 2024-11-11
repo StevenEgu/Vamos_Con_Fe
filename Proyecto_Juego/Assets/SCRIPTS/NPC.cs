@@ -15,14 +15,17 @@ public class NPC : MonoBehaviour
     public float wordSpeed = 0.05f;
     public bool playerIsClose;
 
+    public GameObject interactionText; // El texto flotante que indica "Presiona E para hablar"
+
     void Update()
     {
-        if (dialoguePanel == null || dialogueText == null || contButton == null)
+        if (dialoguePanel == null || dialogueText == null || contButton == null || interactionText == null)
         {
             Debug.LogError("Asegúrate de que todos los elementos están asignados en el Inspector.");
             return;
         }
 
+        // Si el jugador está cerca y presiona E
         if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
         {
             if (dialoguePanel.activeInHierarchy)
@@ -36,6 +39,7 @@ public class NPC : MonoBehaviour
             }
         }
 
+        // Muestra el botón de continuar cuando se haya escrito todo el diálogo
         if (dialogueText.text == dialogue[index])
         {
             contButton.SetActive(true);
@@ -81,6 +85,7 @@ public class NPC : MonoBehaviour
         {
             Debug.Log("Jugador ha entrado en contacto con el NPC");
             playerIsClose = true;
+            interactionText.SetActive(true); // Muestra el mensaje cuando el jugador está cerca
         }
     }
 
@@ -91,6 +96,7 @@ public class NPC : MonoBehaviour
             Debug.Log("Jugador ha salido del contacto con el NPC");
             playerIsClose = false;
             zeroText();
+            interactionText.SetActive(false); // Oculta el mensaje cuando el jugador se aleja
         }
     }
 }
