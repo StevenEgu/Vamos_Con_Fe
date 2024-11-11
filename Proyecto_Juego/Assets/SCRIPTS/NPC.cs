@@ -75,18 +75,20 @@ public class NPC : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.collider.CompareTag("Player"))
         {
+            Debug.Log("Jugador ha entrado en contacto con el NPC");
             playerIsClose = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.collider.CompareTag("Player"))
         {
+            Debug.Log("Jugador ha salido del contacto con el NPC");
             playerIsClose = false;
             zeroText();
         }
