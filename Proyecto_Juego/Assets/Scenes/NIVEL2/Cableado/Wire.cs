@@ -78,4 +78,4 @@ public class Wire : MonoBehaviour
         wireEnd.size = new Vector2(dist, wireEnd.size.y);
 
     }
- }
+}
