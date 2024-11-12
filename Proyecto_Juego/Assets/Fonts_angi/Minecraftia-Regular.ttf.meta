@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5a2b06caa370c3f499fefc8912864a3b
+guid: 6b3390191edc7284398be49011f23ff2
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Luxurious DEMO
+  - Minecraftia
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
