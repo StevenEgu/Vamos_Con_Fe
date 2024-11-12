@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class puerta : MonoBehaviour
 {
-   public string 
+  
 }
