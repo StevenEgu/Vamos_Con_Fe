@@ -6,13 +6,13 @@ public class InventoryManager : MonoBehaviour
 {
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
-    public void AddIem(Item item)
+    public void AddItem(Item item)
     {
-        for (int i = 0; i < inventorySlots.Length; i++) 
-        { 
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if (itemInSlot == null) 
+            if (itemInSlot == null)
             {
                 SpawnNewItem(item, slot);
                 return;
@@ -23,7 +23,7 @@ public class InventoryManager : MonoBehaviour
     {
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = newItemGo.GetComponent<InventoryItem>();
-        inventoryItem .InitialiseItem(item);
+        inventoryItem.InitialiseItem(item);
     }
 
 }
