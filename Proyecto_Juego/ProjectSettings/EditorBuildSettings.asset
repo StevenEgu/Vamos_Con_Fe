@@ -56,4 +56,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NIVEL2/Cableado.unity
     guid: 1cae8ce076e6e1f439e4dc3d33d792e8
+  - enabled: 1
+    path: Assets/Scenes/NIVEL2/Calle_Farola_arreglada.unity
+    guid: 73b93074fc2e6da47b352e2ad7de901f
   m_configObjects: {}
