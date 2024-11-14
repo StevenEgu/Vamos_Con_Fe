@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(menuName = "Scriptable object/Item")]
 
 public class Item : ScriptableObject
-{ 
+{
     public TileBase tile;
     public Sprite image;
     public ItemType type;
@@ -15,21 +15,23 @@ public class Item : ScriptableObject
     public Vector2Int range = new Vector2Int(5, 4);
 
 
-    [Header("Only gameplay")]
+    //[Header("Only gameplay")]
+    
+    //[Header("Only UI")]
 
-    [Header("Only UI")]
+    //[Header("Both")]
 
-    [Header("Both")]
-}
 
-public enum ItemType
-{
-    BuildingBlock,
-    Tool
-}
+    public enum ItemType
+    {
+        BuildingBlock,
+        Tool
+    }
 
-public enum ActionType
-{
-    Dig,
-    Mine
+    public enum ActionType
+    {
+        Dig,
+        Mine
+    }
+
 }
