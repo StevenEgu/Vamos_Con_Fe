@@ -16,6 +16,7 @@ TagManager:
   - Jardin
   - Pasillo
   - Salon
+  - Item
   layers:
   - Default
   - TransparentFX
