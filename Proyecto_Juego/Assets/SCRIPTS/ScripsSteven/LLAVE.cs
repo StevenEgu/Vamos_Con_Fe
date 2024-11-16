@@ -15,7 +15,7 @@ public class LLAVE : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //ColliderPuerta.gameObject.SetActive(true);
-            Destroy(objetollave);
+            
             Destroy(colliderPuerta);
            /* if (Pausa == false)
             {
