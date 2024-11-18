@@ -8,6 +8,7 @@ public class TUERCA : MonoBehaviour
     public GameObject coliderpuerta;
     public GameObject panel;
     public bool pausa = false;
+    public GameObject anuncion;
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -16,6 +17,7 @@ public class TUERCA : MonoBehaviour
         {
             //ColliderPuerta.gameObject.SetActive(true);
             Destroy(coliderpuerta);
+            Destroy(anuncion);
            
             /* if (Pausa == false)
              {

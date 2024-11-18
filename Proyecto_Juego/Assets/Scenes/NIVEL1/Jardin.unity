@@ -642,7 +642,7 @@ Transform:
   m_GameObject: {fileID: 831919216}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 1.04, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -661,8 +661,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 9200284}
-  derechaMax: 0
-  izquierdaMax: 12.5
+  derechaMax: 1.04
+  izquierdaMax: 11.71
   alturaMax: 0
   alturaMin: 0
   speed: 5
@@ -1041,7 +1041,7 @@ GameObject:
   - component: {fileID: 1421903329}
   m_Layer: 0
   m_Name: Capsule (2)
-  m_TagString: Habitacion
+  m_TagString: Cambio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
