@@ -9,6 +9,7 @@ public class ItemPickup_angela : MonoBehaviour
         // Verifica si el objeto que entra al trigger es el jugador
         if (other.CompareTag("Player"))
         {
+            Debug.Log(" recogido");
             // Intenta agregar el ítem al inventario
             bool fueAgregado = inventarioManager.AgregarItem(gameObject);
             if (fueAgregado)

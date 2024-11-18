@@ -6,7 +6,7 @@ public class DESTRUIR : MonoBehaviour
 {
     public GameObject GameObject;
     // Start is called before the first frame update
-    public void Destruir()
+    public void OnMouseDown()
     {
         GameObject.SetActive(false);
     }
