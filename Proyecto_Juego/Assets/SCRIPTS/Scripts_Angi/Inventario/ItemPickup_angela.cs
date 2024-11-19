@@ -6,10 +6,11 @@ public class ItemPickup_angela : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("recogido");
         // Verifica si el objeto que entra al trigger es el jugador
         if (other.CompareTag("Player"))
         {
-            Debug.Log(" recogido");
+            Debug.Log("recogido");
             // Intenta agregar el ítem al inventario
             bool fueAgregado = inventarioManager.AgregarItem(gameObject);
             if (fueAgregado)
