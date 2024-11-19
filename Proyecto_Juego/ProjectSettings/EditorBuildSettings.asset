@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/NIVEL1/Pasillo.unity
     guid: 5c28823ecb77c614194a681250963542
   - enabled: 1
+    path: "Assets/Scenes/NIVEL1/Ba\xF1o.unity"
+    guid: 4758d5c359983044d82bc859bc5d1f89
+  - enabled: 1
     path: Assets/Scenes/NIVEL1/Habitacion.unity
     guid: d33af1fa07ebff946aa075d8992ac6c5
   - enabled: 1
@@ -35,9 +38,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NIVEL1/Covertizo.unity
     guid: 29662b97dafbfe8488195e377cf55394
-  - enabled: 1
-    path: "Assets/Scenes/NIVEL1/Ba\xF1o.unity"
-    guid: 4758d5c359983044d82bc859bc5d1f89
   - enabled: 1
     path: Assets/Scenes/Nivel2/Calle.unity
     guid: da77c10a8f765f14b97de4c5c3bed58f
@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel2/Calle_Farola_arreglada.unity
     guid: 73b93074fc2e6da47b352e2ad7de901f
+  - enabled: 1
+    path: Assets/Scenes/NIVEL3/SALA_CONTROLES.unity
+    guid: 05f03714c244dfa4ca145c296aab1db7
   m_configObjects: {}

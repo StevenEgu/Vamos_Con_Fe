@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class MOVIMIENTOJUGADOR : MonoBehaviour
 {
-    [SerializeField] private float speed = 3f;
+   
+    [HideInInspector] public int lives;
+    [Header("Jugador")]
+    [Space(10)]
+    [TextArea(minLines: 2, maxLines: 4)]
+    [SerializeField] private string DescripcionJugador;
+    
+
+    [Header("Movimiento")]
+    [Range(2f,10f)]
+    [Space(10)]
+    [SerializeField] private float VelocidadJugador = 3f;
+
     private Rigidbody2D playerRb;
     private Vector2 moveInput;
 
@@ -23,7 +35,7 @@ public class MOVIMIENTOJUGADOR : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        playerRb.MovePosition(playerRb.position + moveInput * speed * Time.fixedDeltaTime);
+        playerRb.MovePosition(playerRb.position + moveInput * VelocidadJugador * Time.fixedDeltaTime);
     }
 
 

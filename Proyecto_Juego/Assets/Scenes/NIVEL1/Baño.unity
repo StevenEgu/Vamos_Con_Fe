@@ -382,6 +382,7 @@ MonoBehaviour:
   coliderpuerta: {fileID: 0}
   panel: {fileID: 1834372286}
   pausa: 1
+  anuncion: {fileID: 0}
 --- !u!1 &120348673
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,7 +2426,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b16cd27e9ce0ed43ae03966fefd062b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  lives: 0
+  DescripcionJugador: 
+  VelocidadJugador: 3
 --- !u!61 &598366356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2670,7 +2673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -40.339}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175, y: -978}
+  m_AnchoredPosition: {x: -150.7, y: -960.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &705181544
@@ -6047,14 +6050,14 @@ RectTransform:
   m_GameObject: {fileID: 1624876458}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.773442, y: 60.13686, z: 60.13686}
+  m_LocalScale: {x: 5.385493, y: 33.137417, z: 33.137417}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1095582342}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -764.1, y: -64.5}
+  m_AnchoredPosition: {x: -1573, y: -2347}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624876460
@@ -6126,7 +6129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
