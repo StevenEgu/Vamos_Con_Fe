@@ -18,6 +18,7 @@ TagManager:
   - Salon
   - Item
   - LugarDeColocacion
+  - Ground
   layers:
   - Default
   - TransparentFX
