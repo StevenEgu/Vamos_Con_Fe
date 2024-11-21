@@ -6,6 +6,7 @@ public class LugarDeColocacion : MonoBehaviour
 
     public bool ColocarItem(GameObject item)
     {
+        Debug.Log($"Colocando ítem {item.name} en {gameObject.name}.");
         if (!estaOcupado)
         {
             Debug.Log($"Colocando ítem {item.name} en {gameObject.name}.");

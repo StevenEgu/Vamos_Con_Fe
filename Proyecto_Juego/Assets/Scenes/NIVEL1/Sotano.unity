@@ -6216,7 +6216,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b16cd27e9ce0ed43ae03966fefd062b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  lives: 0
+  DescripcionJugador: Este es el jugador principal,el cual se vera en todos los niveles
+    creados.
+  VelocidadJugador: 5
 --- !u!212 &1769844116
 SpriteRenderer:
   m_ObjectHideFlags: 0
