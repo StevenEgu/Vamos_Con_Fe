@@ -3,34 +3,65 @@ using UnityEngine.EventSystems;
 
 public class InventoryItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    private RectTransform rectTransform;  // Referencia al RectTransform del objeto
-    private CanvasGroup canvasGroup;     // Para manejar la transparencia del ítem al arrastrarlo
-    private Canvas parentCanvas;         // El Canvas al que pertenece el ítem
+    private Vector3 originalLocalPosition; // Posición local inicial
+    private Transform originalParent; // Padre original del ítem
+    private RectTransform rectTransform; // Transform del ítem
+    private CanvasGroup canvasGroup; // Control de interacción durante el drag
+    public RectTransform inventoryArea; // RectTransform del área válida (el inventario)
 
-    void Awake()
+    private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        parentCanvas = GetComponentInParent<Canvas>();
     }
 
-    // Cuando comenzamos a arrastrar
+    // Al comenzar a arrastrar
     public void OnBeginDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 0.6f;  // Hacer el ítem más transparente
-        canvasGroup.blocksRaycasts = false;  // Permitir que otros elementos reciban eventos
+        // Guardamos el padre y posición inicial del ítem
+        originalParent = transform.parent;
+        originalLocalPosition = rectTransform.localPosition;
+
+        // Permitimos que el objeto flote sobre otros
+        canvasGroup.blocksRaycasts = false;
     }
 
     // Mientras arrastramos
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / parentCanvas.scaleFactor;
+        // Movemos el ítem según la posición del mouse
+        rectTransform.position = Input.mousePosition;
     }
 
-    // Cuando soltamos el ítem
+    // Al soltar el ítem
     public void OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 1f;  // Restaurar la transparencia del ítem
-        canvasGroup.blocksRaycasts = true;  // Bloquear eventos de clic
+        // Reactivamos los rayos del ítem para que interactúe con otros objetos
+        canvasGroup.blocksRaycasts = true;
+
+        // Verificamos si el ítem está dentro del área válida
+        if (IsValidDropZone(eventData))
+        {
+            // Si es válido, el ítem permanece donde se soltó
+            Debug.Log("Ítem soltado en un área válida.");
+        }
+        else
+        {
+            // Si no es válido, volvemos a su posición original
+            rectTransform.SetParent(originalParent);
+            rectTransform.localPosition = originalLocalPosition;
+            Debug.Log("Ítem restaurado a su posición original.");
+        }
+    }
+
+    // Verifica si el ítem está dentro del área válida
+    private bool IsValidDropZone(PointerEventData eventData)
+    {
+        // Comprueba si el punto donde soltaste está dentro del RectTransform del inventario
+        return RectTransformUtility.RectangleContainsScreenPoint(
+            inventoryArea,
+            eventData.position,
+            Camera.main // Usa la cámara principal para validar
+        );
     }
 }
