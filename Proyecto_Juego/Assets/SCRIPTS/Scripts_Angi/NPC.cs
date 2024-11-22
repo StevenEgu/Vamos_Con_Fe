@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
     public GameObject dialoguePanel;
-    public TMP_Text dialogueText; // Solo funciona el scrpit si se esta cerca del npc
+    public TMP_Text dialogueText; // Texto del diálogo
     public string[] dialogue;
     private int index;
 
@@ -15,13 +14,23 @@ public class NPC : MonoBehaviour
     public float wordSpeed = 0.05f;
     public bool playerIsClose;
 
-    public GameObject interactionText; // El texto flotante que indica "Presiona E para hablar"
+    public GameObject interactionText; // Texto flotante de "Presiona E para hablar"
+    public GameObject popup; // Referencia al popup que aparecerá tras el diálogo
+
+    void Start()
+    {
+        // Asegurarse de que el popup esté desactivado al inicio
+        if (popup != null)
+        {
+            popup.SetActive(false);
+        }
+    }
 
     void Update()
     {
-        if (dialoguePanel == null || dialogueText == null || contButton == null || interactionText == null)
+        if (dialoguePanel == null || dialogueText == null || contButton == null || interactionText == null || popup == null)
         {
-            Debug.LogError("Asegúrate de que todos los elementos están asignados en el Inspector.");
+            Debug.LogError("Asegúrate de que todos los elementos estén asignados en el Inspector.");
             return;
         }
 
@@ -51,6 +60,10 @@ public class NPC : MonoBehaviour
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
+        if (popup != null)
+        {
+            popup.SetActive(false); // Asegurarse de que el popup se oculta si se interrumpe
+        }
     }
 
     IEnumerator Typing()
@@ -76,6 +89,10 @@ public class NPC : MonoBehaviour
         else
         {
             zeroText();
+            if (popup != null)
+            {
+                popup.SetActive(true); // Mostrar el popup después del último diálogo
+            }
         }
     }
 
@@ -97,6 +114,10 @@ public class NPC : MonoBehaviour
             playerIsClose = false;
             zeroText();
             interactionText.SetActive(false); // Oculta el mensaje cuando el jugador se aleja
+            if (popup != null)
+            {
+                popup.SetActive(false); // Oculta el popup si el jugador se aleja
+            }
         }
     }
 }

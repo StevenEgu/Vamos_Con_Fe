@@ -3845,6 +3845,7 @@ MonoBehaviour:
   wordSpeed: 0.1
   playerIsClose: 1
   interactionText: {fileID: 2146331759}
+  popup: {fileID: 0}
 --- !u!61 &2096895045
 BoxCollider2D:
   m_ObjectHideFlags: 0
