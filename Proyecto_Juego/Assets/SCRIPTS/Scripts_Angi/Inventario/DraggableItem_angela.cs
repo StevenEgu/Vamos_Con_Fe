@@ -1,15 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableItem_angela : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    private Vector3 initialPosition;
     private Camera mainCamera;
 
     private void Start()
     {
         mainCamera = Camera.main;
-        initialPosition = transform.position;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -42,8 +40,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             }
         }
 
-        // Si no hay lugar válido, vuelve a la posición inicial
-        Debug.LogWarning("No se encontró un lugar de colocación válido. Volviendo a la posición inicial.");
-        transform.position = initialPosition;
+        // Si no hay lugar válido, mantener el objeto en su posición actual
+        Debug.LogWarning("No se encontró un lugar de colocación válido. El objeto no se suelta.");
     }
 }

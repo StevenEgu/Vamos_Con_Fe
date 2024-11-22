@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class NPC : MonoBehaviour
 {
     public GameObject dialoguePanel;
-    public TMP_Text dialogueText;
+    public TMP_Text dialogueText; // Solo funciona el scrpit si se esta cerca del npc
     public string[] dialogue;
     private int index;
 
