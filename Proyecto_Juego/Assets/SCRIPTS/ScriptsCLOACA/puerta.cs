@@ -10,7 +10,7 @@ public class puerta : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             int nivelActual = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(nivelActual + 4);
+            SceneManager.LoadScene(nivelActual + 3);
         }
     }
 }

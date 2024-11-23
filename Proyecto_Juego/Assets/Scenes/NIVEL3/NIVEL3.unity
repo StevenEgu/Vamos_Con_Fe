@@ -7712,11 +7712,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1458030935391291421, guid: c1032c0aed3b8ad4aa7706ed1d9aca2d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 125.72
+      value: 103.5
       objectReference: {fileID: 0}
     - target: {fileID: 1458030935391291421, guid: c1032c0aed3b8ad4aa7706ed1d9aca2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.5
+      value: 41.5
       objectReference: {fileID: 0}
     - target: {fileID: 1458030935391291421, guid: c1032c0aed3b8ad4aa7706ed1d9aca2d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7770,6 +7770,10 @@ PrefabInstance:
     - target: {fileID: 4284270959067103154, guid: 119d7a50a58d4134eafc807d2d83794a, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466851183502130658, guid: 119d7a50a58d4134eafc807d2d83794a, type: 3}
+      propertyPath: VelocidadJugador
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7548961540932684144, guid: 119d7a50a58d4134eafc807d2d83794a, type: 3}
       propertyPath: m_LocalPosition.x
