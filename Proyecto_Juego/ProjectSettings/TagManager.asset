@@ -20,6 +20,7 @@ TagManager:
   - LugarDeColocacion
   - Ground
   - Objeto
+  - Colision
   layers:
   - Default
   - TransparentFX

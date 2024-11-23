@@ -6,20 +6,33 @@ public class AVISO : MonoBehaviour
 {
     [SerializeField] private GameObject anuncio; // Panel o elemento de aviso que se activa/desactiva
     [SerializeField] private TMP_Text textoAviso; // Componente de texto de TextMeshPro
-    [SerializeField] private string mensaje; // Mensaje único para mostrar
+    [SerializeField] private string[] mensajes; // Lista de mensajes para mostrar
     [SerializeField] private float typingSpeed = 0.05f; // Velocidad de escritura (en segundos por carácter)
+    [SerializeField] private float delayBetweenMessages = 2f; // Tiempo de espera entre mensajes
 
-    private bool hasBeenTriggered = false; // Para evitar que el texto se muestre más de una vez
+    private bool hasBeenTriggered = false; // Para evitar que el evento se dispare más de una vez
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Solo mostrar el texto si el jugador entra en la zona y el mensaje no se ha mostrado antes
+        // Solo mostrar los mensajes si el jugador entra en la zona y aún no han sido mostrados
         if (collision.gameObject.CompareTag("Player") && !hasBeenTriggered)
         {
-            hasBeenTriggered = true; // Marca que ya se activó el mensaje
+            hasBeenTriggered = true; // Marca que ya se activó
             anuncio.SetActive(true); // Activa el panel de aviso
-            StartCoroutine(EfectoMaquinaDeEscribir(mensaje)); // Inicia el efecto de máquina de escribir
+            StartCoroutine(MostrarMensajesUnoPorUno()); // Inicia la rutina para mostrar los mensajes
         }
+    }
+
+    private IEnumerator MostrarMensajesUnoPorUno()
+    {
+        foreach (string mensaje in mensajes)
+        {
+            yield return StartCoroutine(EfectoMaquinaDeEscribir(mensaje)); // Muestra el mensaje actual con efecto
+            yield return new WaitForSeconds(delayBetweenMessages); // Espera antes de mostrar el siguiente mensaje
+        }
+
+        // Desactiva el panel automáticamente después de mostrar todos los mensajes
+        anuncio.SetActive(false);
     }
 
     private IEnumerator EfectoMaquinaDeEscribir(string mensaje)
@@ -30,10 +43,5 @@ public class AVISO : MonoBehaviour
             textoAviso.text += letra; // Agrega la letra al texto
             yield return new WaitForSeconds(typingSpeed); // Espera antes de agregar la siguiente letra
         }
-
-        // Opcional: Desactiva el panel automáticamente después de que el mensaje se haya mostrado completamente
-        yield return new WaitForSeconds(2f); // Espera 2 segundos después de mostrar el mensaje
-        anuncio.SetActive(false); // Desactiva el panel de aviso
     }
 }
-

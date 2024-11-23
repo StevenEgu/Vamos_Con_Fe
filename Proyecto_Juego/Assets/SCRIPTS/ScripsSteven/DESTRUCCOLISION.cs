@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class DESTRUCCOLISION : MonoBehaviour
 {
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Verifica si el objeto que colisiona tiene un tag específico (opcional)
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Colision"))
         {
             // Destruir el objeto que ha colisionado
             Destroy(collision.gameObject);

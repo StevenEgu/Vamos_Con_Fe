@@ -13,7 +13,7 @@ public class MOVIMIENTOJUGADOR : MonoBehaviour
     
 
     [Header("Movimiento")]
-    [Range(2f,10f)]
+    [Range(2f,20f)]
     [Space(10)]
     [SerializeField] private float VelocidadJugador = 3f;
 
