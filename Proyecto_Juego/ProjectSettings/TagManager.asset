@@ -19,6 +19,7 @@ TagManager:
   - Item
   - LugarDeColocacion
   - Ground
+  - Objeto
   layers:
   - Default
   - TransparentFX
