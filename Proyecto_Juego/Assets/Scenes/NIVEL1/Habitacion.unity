@@ -2833,7 +2833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 0
   DescripcionJugador: 
-  VelocidadJugador: 3
+  VelocidadJugador: 15
 --- !u!50 &1095820027
 Rigidbody2D:
   serializedVersion: 4

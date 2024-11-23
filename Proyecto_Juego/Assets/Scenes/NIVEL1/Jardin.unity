@@ -198,7 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b16cd27e9ce0ed43ae03966fefd062b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  lives: 0
+  DescripcionJugador: 
+  VelocidadJugador: 15
 --- !u!114 &9200288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1513,6 +1515,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anuncio: {fileID: 1533313341}
+  textoAviso: {fileID: 0}
+  mensajes: []
+  typingSpeed: 0.05
+  delayBetweenMessages: 2
 --- !u!61 &1925875447
 BoxCollider2D:
   m_ObjectHideFlags: 0
