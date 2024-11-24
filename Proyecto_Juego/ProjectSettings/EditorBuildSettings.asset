@@ -65,4 +65,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NIVEL2/Escena_Calle.unity
     guid: 13c97e8a62f728041b60938409f68118
+<<<<<<< HEAD
+=======
+  - enabled: 1
+    path: Assets/Scenes/NIVELFINAL/NIVEL4.unity
+    guid: 74dcc70cc065ae145996ddd86cd02da9
+  - enabled: 1
+    path: Assets/Scenes/NIVELFINAL/Iglesia.unity
+    guid: 68ba2ac99fccd8948855c52fea341d28
+  - enabled: 1
+    path: Assets/Scenes/NIVEL3/Juego.unity
+    guid: feb4b055d1ddd3d40b1ec470cba9f633
+>>>>>>> 00dd53b57e25ce3ca292e97b4366b267ee81f7f4
   m_configObjects: {}
