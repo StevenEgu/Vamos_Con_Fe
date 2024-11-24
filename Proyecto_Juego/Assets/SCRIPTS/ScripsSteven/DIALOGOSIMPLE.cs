@@ -2,19 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement; // Para volver al menú principal.
 
-public class DIALOGO : MonoBehaviour
+public class DIALOGOSIMPLE : MonoBehaviour
 {
     [SerializeField] private GameObject dialoguePlayer;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
 
-    // Nuevos paneles y botones
-    [SerializeField] private GameObject questionPanel;
-    [SerializeField] private GameObject finalPanel;
-    [SerializeField] private GameObject returnMenuButton;
+    // Referencia al objeto con el collider que quieres destruir
+    [SerializeField] private GameObject colliderToDestroy;
 
     private bool isPlayerInRange;
     private bool didDialogueStart;
@@ -49,7 +46,16 @@ public class DIALOGO : MonoBehaviour
         }
         else
         {
-            EndDialogue();
+            didDialogueStart = false;
+            dialoguePanel.SetActive(false);
+            dialoguePlayer.SetActive(true);
+            Time.timeScale = 1f;
+
+            // Destruir el collider al terminar el diálogo
+            if (colliderToDestroy != null)
+            {
+                Destroy(colliderToDestroy);
+            }
         }
     }
 
@@ -72,33 +78,6 @@ public class DIALOGO : MonoBehaviour
             dialogueText.text += ch;
             yield return new WaitForSecondsRealtime(0.05f);
         }
-    }
-
-    private void EndDialogue()
-    {
-        didDialogueStart = false;
-        dialoguePanel.SetActive(false);
-        questionPanel.SetActive(true); // Abre el panel de la pregunta.
-        Time.timeScale = 0f;
-    }
-
-    // Métodos para manejar las opciones de los botones
-    public void OnOption1Selected()
-    {
-        questionPanel.SetActive(false);
-        finalPanel.SetActive(true); // Abre el panel final.
-    }
-
-    public void OnOption2Selected()
-    {
-        questionPanel.SetActive(false);
-        finalPanel.SetActive(true); // Abre el mismo panel final.
-    }
-
-    public void ReturnToMainMenu()
-    {
-        Time.timeScale = 1f; // Reactiva el tiempo.
-        SceneManager.LoadScene("MainMenu"); // Cambia "MainMenu" al nombre de tu escena principal.
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
