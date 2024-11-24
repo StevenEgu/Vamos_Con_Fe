@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class VidaJugador : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class VidaJugador : MonoBehaviour
     public int vidaMaxima;
     public UnityEvent<int> cambioVida;
 
+
+    public event EventHandler MuerteJugador;
     private void Start()
     {
         vidaActual = vidaMaxima;
@@ -32,6 +35,7 @@ public class VidaJugador : MonoBehaviour
 
         if (vidaActual <= 0)
         {
+            MuerteJugador?.Invoke(this, EventArgs.Empty);
             Destroy (gameObject);
         } 
 

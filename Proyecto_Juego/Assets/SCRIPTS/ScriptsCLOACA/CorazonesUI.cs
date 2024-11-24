@@ -47,6 +47,31 @@ public class CorazonesUI : MonoBehaviour
 
     private void CambiarVida(int vidaActual)
     {
+        if(vidaActual<= indexActual)
+        {
+            QuitarCorazones(vidaActual);
+        }
+        else
+        {
+            AgregarCorazones(vidaActual);
+        }
+    }
 
+    private void QuitarCorazones(int vidaActual)
+    {
+        for(int i = indexActual;i >= vidaActual; i--)
+        {
+            indexActual = i;
+            listaCorazones[indexActual].sprite = corazonVacio;
+        }
+    }
+
+    private void AgregarCorazones(int vidaActual)
+    {
+        for (int i = indexActual; i < vidaActual; i++)
+        {
+            indexActual = i;
+            listaCorazones[indexActual].sprite = corazonLleno;
+        }
     }
 }
