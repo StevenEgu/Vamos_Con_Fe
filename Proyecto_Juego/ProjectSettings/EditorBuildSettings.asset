@@ -71,10 +71,13 @@ EditorBuildSettings:
     path: Assets/Scenes/NIVELFINAL/NIVEL4.unity
     guid: 74dcc70cc065ae145996ddd86cd02da9
   - enabled: 1
-    path: Assets/Scenes/NIVELFINAL/Iglesia.unity
-    guid: 68ba2ac99fccd8948855c52fea341d28
-  - enabled: 1
     path: Assets/Scenes/NIVEL3/Juego.unity
     guid: feb4b055d1ddd3d40b1ec470cba9f633
+<<<<<<< HEAD
 >>>>>>> 00dd53b57e25ce3ca292e97b4366b267ee81f7f4
+=======
+  - enabled: 1
+    path: Assets/Scenes/NIVELFINAL/Iglesia.unity
+    guid: 68ba2ac99fccd8948855c52fea341d28
+>>>>>>> 0377f91feb44d7ab9472f6ec51ef4dddf0240596
   m_configObjects: {}
