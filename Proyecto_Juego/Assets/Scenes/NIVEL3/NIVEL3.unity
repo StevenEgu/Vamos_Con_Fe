@@ -3405,7 +3405,7 @@ GameObject:
   - component: {fileID: 845654923}
   - component: {fileID: 845654922}
   - component: {fileID: 845654926}
-  - component: {fileID: 845654927}
+  - component: {fileID: 845654928}
   m_Layer: 0
   m_Name: Enemigo
   m_TagString: Player
@@ -3599,7 +3599,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.6, y: 3.0037277}
   m_EdgeRadius: 0
---- !u!114 &845654927
+--- !u!114 &845654928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3608,7 +3608,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 845654920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b6aff236586f7b43b34e276c18aa856, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be1572e7147b1642b028d0289847c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguePlayer: {fileID: 1441401864}
@@ -3618,8 +3618,6 @@ MonoBehaviour:
   - 'Soy el monstruo de la alcantarilla '
   - Quieres pasar eh?....
   questionPanel: {fileID: 962240324}
-  finalPanel: {fileID: 0}
-  returnMenuButton: {fileID: 0}
 --- !u!1 &879536781
 GameObject:
   m_ObjectHideFlags: 0
