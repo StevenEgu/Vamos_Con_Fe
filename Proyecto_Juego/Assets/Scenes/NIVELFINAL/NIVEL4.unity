@@ -2426,7 +2426,7 @@ MonoBehaviour:
   colliderToDestroy: {fileID: 6575228}
   playerDialoguePanel: {fileID: 856214063}
   playerDialogueText: {fileID: 988432760}
-  playerDialogue: Revisemos el auto,si funciona podremos espantar al feo ese.
+  playerDialogue: "\xBFPiensas lo mismo que yo? Venga,revisemos el auto"
   playerDialogueDuration: 1
 --- !u!1 &640751284
 GameObject:
