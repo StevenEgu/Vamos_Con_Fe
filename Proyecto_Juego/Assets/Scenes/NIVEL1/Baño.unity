@@ -6666,7 +6666,7 @@ GameObject:
   - component: {fileID: 1806814459}
   - component: {fileID: 1806814458}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Puerta
   m_TagString: Regreso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7487,7 +7487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2029315183
 RectTransform:
   m_ObjectHideFlags: 0

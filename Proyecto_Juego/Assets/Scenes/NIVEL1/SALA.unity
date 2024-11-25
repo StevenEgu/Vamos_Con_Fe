@@ -1832,8 +1832,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anuncio: {fileID: 371411611}
   textoAviso: {fileID: 952527818}
-  mensaje: Era el sofa favorito de mama,espero que se encuentre bien
+  mensajes:
+  - "El sofa favorito de mam\xE1"
   typingSpeed: 0.05
+  delayBetweenMessages: 2
 --- !u!61 &562730679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7962,8 +7964,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anuncio: {fileID: 437675436}
   textoAviso: {fileID: 1281322478}
-  mensaje: Parece que necesitaremos una llave para abrir el cajon
+  mensajes:
+  - Necesitaremos una llave para abrir ese cajon
   typingSpeed: 0.05
+  delayBetweenMessages: 2
 --- !u!61 &1997958929
 BoxCollider2D:
   m_ObjectHideFlags: 0

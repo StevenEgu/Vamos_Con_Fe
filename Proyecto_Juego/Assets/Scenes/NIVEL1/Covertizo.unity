@@ -2077,7 +2077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 0
   DescripcionJugador: 
-  VelocidadJugador: 15
+  VelocidadJugador: 10
 --- !u!61 &1930117435
 BoxCollider2D:
   m_ObjectHideFlags: 0
