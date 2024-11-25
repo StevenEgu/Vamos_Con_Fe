@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -12,6 +11,12 @@ public class DIALOGOSIMPLE : MonoBehaviour
 
     // Referencia al objeto con el collider que quieres destruir
     [SerializeField] private GameObject colliderToDestroy;
+
+    // Nueva referencia para el panel de texto del personaje principal
+    [SerializeField] private GameObject playerDialoguePanel;
+    [SerializeField] private TMP_Text playerDialogueText;
+    [SerializeField] private string playerDialogue;  // Texto que se mostrará para el personaje principal
+    [SerializeField] private float playerDialogueDuration = 3f;  // Duración en segundos antes de ocultar el panel
 
     private bool isPlayerInRange;
     private bool didDialogueStart;
@@ -56,6 +61,9 @@ public class DIALOGOSIMPLE : MonoBehaviour
             {
                 Destroy(colliderToDestroy);
             }
+
+            // Activar el panel de texto del personaje principal
+            ShowPlayerDialogue();
         }
     }
 
@@ -76,8 +84,35 @@ public class DIALOGOSIMPLE : MonoBehaviour
         foreach (char ch in dialogueLines[lineIndex])
         {
             dialogueText.text += ch;
-            yield return new WaitForSecondsRealtime(0.05f);
+            yield return new WaitForSecondsRealtime(0.05f);  // Efecto de máquina de escribir
         }
+    }
+
+    private void ShowPlayerDialogue()
+    {
+        // Mostrar el panel del personaje principal
+        playerDialoguePanel.SetActive(true);
+
+        // Limpiar el texto antes de comenzar a mostrarlo
+        playerDialogueText.text = string.Empty;
+
+        // Iniciar la coroutine para mostrar el texto del personaje principal con efecto de máquina de escribir
+        StartCoroutine(ShowPlayerLine());
+    }
+
+    private IEnumerator ShowPlayerLine()
+    {
+        foreach (char ch in playerDialogue)
+        {
+            playerDialogueText.text += ch;  // Agregar una letra a la vez
+            yield return new WaitForSeconds(0.05f);  // Efecto de máquina de escribir
+        }
+
+        // Esperar unos segundos antes de ocultar el panel
+        yield return new WaitForSeconds(playerDialogueDuration);
+
+        // Ocultar el panel después del tiempo especificado
+        playerDialoguePanel.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
