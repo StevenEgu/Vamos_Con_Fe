@@ -22,7 +22,7 @@ public class NIVEL3 : MonoBehaviour
     public void CambiarNivel()
     {
         int nivelActual = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(11);
+        SceneManager.LoadScene(13);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -31,7 +31,7 @@ public class NIVEL3 : MonoBehaviour
         {
             Debug.Log("Tocando algo");
             int nivelActual = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(11);
+            SceneManager.LoadScene(13);
         }
     }
 }

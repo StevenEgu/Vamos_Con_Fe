@@ -22,7 +22,7 @@ public class Habitacion : MonoBehaviour
     public void CambiarNivel()
     {
         int nivelActual = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(13);
+        SceneManager.LoadScene(8);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -31,7 +31,7 @@ public class Habitacion : MonoBehaviour
         {
             Debug.Log("Tocando algo");
             int nivelActual = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(13);
+            SceneManager.LoadScene(8);
         }
     }
 }

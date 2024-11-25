@@ -22,7 +22,7 @@ public class PASILO : MonoBehaviour
     public void CambiarNivel()
     {
         int nivelActual = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(4);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -31,7 +31,7 @@ public class PASILO : MonoBehaviour
         {
             Debug.Log("Tocando algo");
             int nivelActual = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(8);
+            SceneManager.LoadScene(4);
         }
     }
 }

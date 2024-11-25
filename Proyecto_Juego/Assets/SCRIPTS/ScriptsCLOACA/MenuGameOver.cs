@@ -12,7 +12,7 @@ public class MenuGameOver : MonoBehaviour
 
     private void Start()
     {
-        vidaJugador = GameObject.FindGameObjectsWithTag("Player").GetComponent<VidaJugador>();
+        //vidaJugador = GameObject.FindGameObjectsWithTag("Player").GetComponent<VidaJugador>();
         vidaJugador.MuerteJugador += ActivarMenu;
     }
 

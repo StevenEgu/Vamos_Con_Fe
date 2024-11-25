@@ -1890,7 +1890,7 @@ GameObject:
   - component: {fileID: 981910386}
   m_Layer: 0
   m_Name: Ventana
-  m_TagString: Cambio
+  m_TagString: Jardin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1927,7 +1927,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.070200205, y: -0.5469192}
+  m_Offset: {x: -0.4437381, y: -0.31704974}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1938,7 +1938,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.825203, y: 6.4634447}
+  m_Size: {x: 3.5722787, y: 6.0037055}
   m_EdgeRadius: 0
 --- !u!212 &981910387
 SpriteRenderer:
@@ -2717,6 +2717,8 @@ GameObject:
   - component: {fileID: 1095820023}
   - component: {fileID: 1095820022}
   - component: {fileID: 1095820026}
+  - component: {fileID: 1095820030}
+  - component: {fileID: 1095820029}
   - component: {fileID: 1095820025}
   - component: {fileID: 1095820024}
   - component: {fileID: 1095820028}
@@ -2860,7 +2862,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1095820028
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2906,6 +2908,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9635882, y: 3.882864}
   m_EdgeRadius: 0
+--- !u!114 &1095820029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095820021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d0ea31d3ca9cf6429eadfb3b1d4a66f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1095820030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095820021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205ece6c7a9c57a41aea44810c27e51b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1132864128
 GameObject:
   m_ObjectHideFlags: 0
@@ -4208,7 +4234,7 @@ GameObject:
   - component: {fileID: 1527829590}
   m_Layer: 0
   m_Name: Puerta
-  m_TagString: Regreso
+  m_TagString: Pasillo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
