@@ -1,123 +1,127 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    public GameObject dialoguePanel;
-    public TMP_Text dialogueText; // Texto del diálogo
-    public string[] dialogue;
-    private int index;
+    [SerializeField] private TMP_Text dialoguePlayerText;  // Texto de "Presiona E para hablar"
+    [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private TMP_Text dialogueText;  // Texto del diálogo del NPC
+    [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
 
-    public GameObject contButton;
-    public float wordSpeed = 0.05f;
-    public bool playerIsClose;
+    // Nuevo texto para el protagonista
+    [SerializeField] private TMP_Text protagonistText;  // Texto que dirá el protagonista al final del diálogo
+    [SerializeField] private string protagonistDialogue;  // Texto que aparecerá para el protagonista
+    [SerializeField] private float protagonistDialogueDuration = 3f;  // Duración en segundos del texto del protagonista
 
-    public GameObject interactionText; // Texto flotante de "Presiona E para hablar"
-    public GameObject popup; // Referencia al popup que aparecerá tras el diálogo
-
-    void Start()
-    {
-        // Asegurarse de que el popup esté desactivado al inicio
-        if (popup != null)
-        {
-            popup.SetActive(false);
-        }
-    }
+    private bool isPlayerInRange;
+    private bool didDialogueStart;
+    private int lineIndex;
 
     void Update()
     {
-        if (dialoguePanel == null || dialogueText == null || contButton == null || interactionText == null || popup == null)
+        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.LogError("Asegúrate de que todos los elementos estén asignados en el Inspector.");
-            return;
-        }
-
-        // Si el jugador está cerca y presiona E
-        if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
-        {
-            if (dialoguePanel.activeInHierarchy)
+            if (!didDialogueStart)
             {
-                zeroText();
+                StartDialogue();
+            }
+            else if (dialogueText.text == dialogueLines[lineIndex])
+            {
+                NextDialogueLine();
             }
             else
             {
-                dialoguePanel.SetActive(true);
-                StartCoroutine(Typing());
+                StopAllCoroutines();
+                dialogueText.text = dialogueLines[lineIndex];
             }
         }
-
-        // Muestra el botón de continuar cuando se haya escrito todo el diálogo
-        if (dialogueText.text == dialogue[index])
-        {
-            contButton.SetActive(true);
-        }
     }
 
-    public void zeroText()
+    private void NextDialogueLine()
     {
-        dialogueText.text = "";
-        index = 0;
-        dialoguePanel.SetActive(false);
-        if (popup != null)
+        lineIndex++;
+        if (lineIndex < dialogueLines.Length)
         {
-            popup.SetActive(false); // Asegurarse de que el popup se oculta si se interrumpe
-        }
-    }
-
-    IEnumerator Typing()
-    {
-        dialogueText.text = ""; // Reinicia el texto
-        foreach (char letter in dialogue[index].ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(wordSpeed);
-        }
-    }
-
-    public void NextLine()
-    {
-        contButton.SetActive(false);
-
-        if (index < dialogue.Length - 1)
-        {
-            index++;
-            dialogueText.text = "";
-            StartCoroutine(Typing());
+            StartCoroutine(ShowLine());
         }
         else
         {
-            zeroText();
-            if (popup != null)
-            {
-                popup.SetActive(true); // Mostrar el popup después del último diálogo
-            }
+            didDialogueStart = false;
+            dialoguePanel.SetActive(false);
+
+            // Mostrar el texto del protagonista después de que el NPC termine de hablar
+            ShowProtagonistDialogue();
+
+            // Desactivar el mensaje "Presiona E para hablar" después de que termine la conversación
+            dialoguePlayerText.gameObject.SetActive(false);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void StartDialogue()
     {
-        if (other.collider.CompareTag("Player"))
+        didDialogueStart = true;
+        dialoguePanel.SetActive(true);
+        dialoguePlayerText.gameObject.SetActive(false);  // Ocultar el mensaje de interacción
+        lineIndex = 0;
+        Time.timeScale = 0f;  // Pausar el juego durante el diálogo
+        StartCoroutine(ShowLine());
+    }
+
+    private IEnumerator ShowLine()
+    {
+        dialogueText.text = string.Empty;
+
+        foreach (char ch in dialogueLines[lineIndex])
         {
-            Debug.Log("Jugador ha entrado en contacto con el NPC");
-            playerIsClose = true;
-            interactionText.SetActive(true); // Muestra el mensaje cuando el jugador está cerca
+            dialogueText.text += ch;
+            yield return new WaitForSecondsRealtime(0.05f);  // Efecto de máquina de escribir
         }
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void ShowProtagonistDialogue()
     {
-        if (other.collider.CompareTag("Player"))
+        // Asegurarse de que el texto del protagonista esté visible
+        protagonistText.gameObject.SetActive(true);
+
+        // Limpiar el texto antes de comenzar a mostrarlo
+        protagonistText.text = string.Empty;
+
+        // Iniciar la coroutine para mostrar el texto del protagonista con efecto de máquina de escribir
+        StartCoroutine(ShowProtagonistLine());
+    }
+
+    private IEnumerator ShowProtagonistLine()
+    {
+        foreach (char ch in protagonistDialogue)
         {
-            Debug.Log("Jugador ha salido del contacto con el NPC");
-            playerIsClose = false;
-            zeroText();
-            interactionText.SetActive(false); // Oculta el mensaje cuando el jugador se aleja
-            if (popup != null)
-            {
-                popup.SetActive(false); // Oculta el popup si el jugador se aleja
-            }
+            protagonistText.text += ch;  // Agregar una letra a la vez
+            yield return new WaitForSeconds(0.05f);  // Efecto de máquina de escribir
+        }
+
+        // Esperar unos segundos antes de ocultar el panel
+        yield return new WaitForSeconds(protagonistDialogueDuration);
+
+        // Ocultar el texto del protagonista después del tiempo especificado
+        protagonistText.gameObject.SetActive(false);  // Desactivar el texto del protagonista
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isPlayerInRange = true;
+            dialoguePlayerText.text = "Ey...Pequeña";  // Mensaje de interacción
+            dialoguePlayerText.gameObject.SetActive(true);  // Activar el mensaje de interacción
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isPlayerInRange = false;
+            dialoguePlayerText.gameObject.SetActive(false);  // Desactivar el texto cuando el jugador se aleja
         }
     }
 }
