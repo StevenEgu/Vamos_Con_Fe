@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class puerta : MonoBehaviour
+public class Salida : MonoBehaviour
 {
+
+
     public string nombre;
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,4 +16,5 @@ public class puerta : MonoBehaviour
             SceneManager.LoadScene(nombre);
         }
     }
+
 }

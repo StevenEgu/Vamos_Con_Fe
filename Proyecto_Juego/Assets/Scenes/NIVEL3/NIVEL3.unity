@@ -1599,6 +1599,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8694194338930820052, guid: 119d7a50a58d4134eafc807d2d83794a, type: 3}
   m_PrefabInstance: {fileID: 7710110884132791763}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &344032845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344032844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b16cd27e9ce0ed43ae03966fefd062b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 0
+  DescripcionJugador: 
+  VelocidadJugador: 12.7
 --- !u!1 &459755619
 GameObject:
   m_ObjectHideFlags: 0
@@ -8816,6 +8831,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4284270959067103154, guid: 119d7a50a58d4134eafc807d2d83794a, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7548961540932684144, guid: 119d7a50a58d4134eafc807d2d83794a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.263
@@ -8860,10 +8879,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jugador
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4092541980864676942, guid: 119d7a50a58d4134eafc807d2d83794a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8694194338930820052, guid: 119d7a50a58d4134eafc807d2d83794a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 344032845}
   m_SourcePrefab: {fileID: 100100000, guid: 119d7a50a58d4134eafc807d2d83794a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

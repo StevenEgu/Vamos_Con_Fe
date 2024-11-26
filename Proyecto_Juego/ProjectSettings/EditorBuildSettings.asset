@@ -59,4 +59,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NIVELFINAL/Iglesia.unity
     guid: 68ba2ac99fccd8948855c52fea341d28
+  - enabled: 1
+    path: Assets/Scenes/NIVEL3/Escaleras.unity
+    guid: 520c2880dcd5a1044a3de385a9b6ce47
+  - enabled: 1
+    path: Assets/Scenes/NIVEL3/NIVEL3NoMonster.unity
+    guid: 12ec16b14cdf4a344b1613b3a77cbdcf
   m_configObjects: {}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class puerta : MonoBehaviour
+public class PuertaNoMonster : MonoBehaviour
 {
     public string nombre;
     void OnTriggerEnter2D(Collider2D other)
