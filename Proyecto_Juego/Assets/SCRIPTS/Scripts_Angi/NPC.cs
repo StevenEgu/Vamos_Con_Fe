@@ -65,6 +65,7 @@ public class NPC : MonoBehaviour
         dialoguePlayerText.gameObject.SetActive(false);  // Ocultar el mensaje de interacción
         lineIndex = 0;
         Time.timeScale = 0f;  // Pausar el juego durante el diálogo
+        Time.timeScale = 1f;  // Pausar el juego durante el diálogo
         StartCoroutine(ShowLine());
     }
 
@@ -111,7 +112,7 @@ public class NPC : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            dialoguePlayerText.text = "Ey...Pequeña";  // Mensaje de interacción
+            dialoguePlayerText.text = "Ey...";  // Mensaje de interacción
             dialoguePlayerText.gameObject.SetActive(true);  // Activar el mensaje de interacción
         }
     }

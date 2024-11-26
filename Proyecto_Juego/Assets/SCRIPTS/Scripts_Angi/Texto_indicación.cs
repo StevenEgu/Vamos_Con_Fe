@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Texto_indicación : MonoBehaviour
 {
-    string frase = "Para hablar con el alguien, pulsa E...";
+    string frase = "...para interactuar, pulsa E...";
     public TMP_Text texto; // Cambiar a TMP_Text
-    public float tiempoDesvanecimiento = 2f; // Duración del desvanecimiento
+    public float tiempoDesvanecimiento = 1f; // Duración del desvanecimiento
     public GameObject jugador; // Referencia al jugador
     private MonoBehaviour PlayerController; // Referencia al script de movimiento
 
