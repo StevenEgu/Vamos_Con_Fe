@@ -418,7 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yourButton: {fileID: 27334951}
   audioSource: {fileID: 1034930182}
-  clickSound: {fileID: 8300000, guid: aea4bbe2ed7cb0b4682abe53eaadeab9, type: 3}
+  clickSound: {fileID: 8300000, guid: 1f1dae04b009ad34994dff2d1ef6045a, type: 3}
   sceneToLoad: Sotano
 --- !u!114 &27334956
 MonoBehaviour:
@@ -775,7 +775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yourButton: {fileID: 57575430}
   audioSource: {fileID: 1034930182}
-  clickSound: {fileID: 8300000, guid: aea4bbe2ed7cb0b4682abe53eaadeab9, type: 3}
+  clickSound: {fileID: 8300000, guid: 1f1dae04b009ad34994dff2d1ef6045a, type: 3}
   sceneToLoad: CONFIGURACION
 --- !u!114 &57575434
 MonoBehaviour:
@@ -1132,13 +1132,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c2298d44edff2414da258ac5e2bba9f2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.9
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -2298,7 +2298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yourButton: {fileID: 1386900158}
   audioSource: {fileID: 1034930182}
-  clickSound: {fileID: 8300000, guid: aea4bbe2ed7cb0b4682abe53eaadeab9, type: 3}
+  clickSound: {fileID: 8300000, guid: 1f1dae04b009ad34994dff2d1ef6045a, type: 3}
   sceneToLoad: 
 --- !u!114 &1386900162
 MonoBehaviour:
