@@ -6566,8 +6566,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
-  DescripcionJugador: En este nivel el jugador debera encontrar una tuerca que activara
-    el ascensor para poder ir a la siguiente habitacion.
+  DescripcionJugador: Este atributo se coloco para describir que acciones realiza
+    el jugador en en nivel en el que se encuentra.
   VelocidadJugador: 5
 --- !u!212 &1769844116
 SpriteRenderer:

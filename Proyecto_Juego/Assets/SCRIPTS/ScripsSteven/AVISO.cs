@@ -4,10 +4,18 @@ using TMPro; // Necesario para usar TextMeshPro
 
 public class AVISO : MonoBehaviour
 {
+
+    [Header("Corrutina para Aviso")]
+    [Space(10)]
     [SerializeField] private GameObject anuncio; // Panel o elemento de aviso que se activa/desactiva
+    [Space(5)]
     [SerializeField] private TMP_Text textoAviso; // Componente de texto de TextMeshPro
+    [Space(5)]
     [SerializeField] private string[] mensajes; // Lista de mensajes para mostrar
+    [Header("Tiempos de Corrutina")]
+    [Space(10)]
     [SerializeField] private float typingSpeed = 0.05f; // Velocidad de escritura (en segundos por carácter)
+    [Space(5)]
     [SerializeField] private float delayBetweenMessages = 2f; // Tiempo de espera entre mensajes
 
     private bool hasBeenTriggered = false; // Para evitar que el evento se dispare más de una vez

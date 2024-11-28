@@ -5706,9 +5706,9 @@ MonoBehaviour:
   anuncio: {fileID: 2029315182}
   textoAviso: {fileID: 154121497}
   mensajes:
-  - Esta muy oscuro aqui,quizas deberiamos encender la luz
+  - "\xBFUnas cizallas? Deben servir para romper algo."
   typingSpeed: 0.05
-  delayBetweenMessages: 2
+  delayBetweenMessages: 1
 --- !u!4 &1431046372
 Transform:
   m_ObjectHideFlags: 0
@@ -5718,7 +5718,7 @@ Transform:
   m_GameObject: {fileID: 1431046369}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -90.91, y: -11.24, z: 2.8886232}
+  m_LocalPosition: {x: -90.91, y: -10.85, z: 2.8886232}
   m_LocalScale: {x: 9.948996, y: 9.948996, z: 9.948996}
   m_ConstrainProportionsScale: 0
   m_Children: []
