@@ -5,64 +5,64 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MENU_INICIO.unity
     guid: e1865c6a54bd42e49ae2960d54ca2819
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/CONFIGURACION.unity
     guid: 7c63f73d275e7734fb628c332f648c0e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVEL1/Sotano.unity
     guid: fa745ea742b44ab4394cae40531c8ec5
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVEL1/SALA.unity
     guid: 9ffdaaa762c694049895a57c40fd3b2e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVEL1/Pasillo.unity
     guid: 5c28823ecb77c614194a681250963542
-  - enabled: 0
+  - enabled: 1
     path: "Assets/Scenes/NIVEL1/Ba\xF1o.unity"
     guid: 4758d5c359983044d82bc859bc5d1f89
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVEL1/Jardin.unity
     guid: 48eb90415c0cd074e9e44c802d601f76
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVEL1/Covertizo.unity
     guid: 29662b97dafbfe8488195e377cf55394
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVEL1/Habitacion.unity
     guid: d33af1fa07ebff946aa075d8992ac6c5
   - enabled: 1
-    path: Assets/Scenes/NIVEL2/Escena_Calle.unity
+    path: Assets/Scenes/Nivel2/Escena_Calle.unity
     guid: 13c97e8a62f728041b60938409f68118
   - enabled: 1
-    path: Assets/Scenes/NIVEL2/Escena_Farola_arreglada.unity
+    path: Assets/Scenes/Nivel2/Escena_Farola_arreglada.unity
     guid: f98f6be891336bb4c9edb2b8dcd2bbb7
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVEL3/SALA_CONTROLES.unity
     guid: 05f03714c244dfa4ca145c296aab1db7
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVEL3/NIVEL3final.unity
     guid: 19e2dceaf2965bc4593d311be1f5a8e8
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVEL3/NIVEL3.unity
     guid: d13022d75a7e7ac488a034220ec874e0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVEL3/Juego.unity
     guid: feb4b055d1ddd3d40b1ec470cba9f633
   - enabled: 1
-    path: Assets/Scenes/NIVEL2/Nivel_Cable/Cableado.unity
+    path: Assets/Scenes/Nivel2/Nivel_Cable/Cableado.unity
     guid: 1cae8ce076e6e1f439e4dc3d33d792e8
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVELFINAL/NIVEL4.unity
     guid: 74dcc70cc065ae145996ddd86cd02da9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVELFINAL/Iglesia.unity
     guid: 68ba2ac99fccd8948855c52fea341d28
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVEL3/Escaleras.unity
     guid: 520c2880dcd5a1044a3de385a9b6ce47
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NIVEL3/NIVEL3NoMonster.unity
     guid: 12ec16b14cdf4a344b1613b3a77cbdcf
   m_configObjects: {}
