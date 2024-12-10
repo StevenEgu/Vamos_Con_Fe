@@ -2212,9 +2212,10 @@ GameObject:
   - component: {fileID: 726832939}
   - component: {fileID: 726832938}
   - component: {fileID: 726832940}
+  - component: {fileID: 726832941}
   m_Layer: 0
   m_Name: Jardin
-  m_TagString: Jardin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2315,7 +2316,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0440104, y: 4.042515}
@@ -2331,6 +2332,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7128148, y: 2.8151374}
   m_EdgeRadius: 0
+--- !u!114 &726832941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726832937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66fad8037c31a07449b13a6985c6199a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  escenaSiguiente: 6
 --- !u!1 &757836384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2984,7 +2998,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.7695477, y: -0.61341095}
@@ -3032,7 +3046,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.7904193, y: -1.8771919}
+  m_Offset: {x: -1.1091944, y: -1.8771919}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3043,7 +3057,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 21.127922, y: 3.7765915}
+  m_Size: {x: 5.3019266, y: 3.7765915}
   m_EdgeRadius: 0
 --- !u!114 &864511269
 MonoBehaviour:
@@ -4912,7 +4926,7 @@ GameObject:
   - component: {fileID: 1294387106}
   m_Layer: 0
   m_Name: Ascensor_Sotano
-  m_TagString: Regreso
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8033,13 +8047,8 @@ GameObject:
   - component: {fileID: 2024665096}
   - component: {fileID: 2024665095}
   - component: {fileID: 2024665094}
-  - component: {fileID: 2024665093}
-  - component: {fileID: 2024665099}
   - component: {fileID: 2024665092}
-  - component: {fileID: 2024665098}
   - component: {fileID: 2024665091}
-  - component: {fileID: 2024665097}
-  - component: {fileID: 2024665100}
   m_Layer: 0
   m_Name: Character_Down_0
   m_TagString: Player
@@ -8119,18 +8128,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.4727902, y: 3.082076}
   m_EdgeRadius: 0
---- !u!114 &2024665093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024665090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8996a14367aec74d86bef5a1cce6d1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2024665094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8213,54 +8210,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2024665097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024665090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c49d538b55e386d4480981fd9a30267d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2024665098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024665090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 364fd819285d5134bb80f608ac2a22a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2024665099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024665090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 205ece6c7a9c57a41aea44810c27e51b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2024665100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024665090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d0ea31d3ca9cf6429eadfb3b1d4a66f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2035542242
 GameObject:
   m_ObjectHideFlags: 0

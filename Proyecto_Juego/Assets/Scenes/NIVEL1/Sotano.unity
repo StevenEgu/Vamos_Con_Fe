@@ -3073,7 +3073,7 @@ GameObject:
   - component: {fileID: 874793071}
   m_Layer: 0
   m_Name: Ascensor_Sotano
-  m_TagString: Cambio
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
