@@ -8,7 +8,7 @@ public class GeneratorManager : MonoBehaviour
     public GameObject panelGenerador;
     public Button interruptor1, interruptor2, interruptor3, interruptor4, interruptor5;
     public VideoPlayer videoPlayer;
-    public RawImage rawImage; // Asegúrate de tener el RawImage en la escena
+    public RawImage rawImage;
 
     // Sprites para los estados On y Off
     public Sprite spriteOn;
@@ -21,22 +21,47 @@ public class GeneratorManager : MonoBehaviour
     private bool estadoInterruptor4 = false;
     private bool estadoInterruptor5 = false;
 
-    void Start()
+    private void Start()
     {
         // Inicializar el panel y el VideoPlayer
         panelGenerador.SetActive(false);
         videoPlayer.Stop();
 
-        // Asegúrate de que el VideoPlayer esté configurado para reproducir en el RawImage
+        // Configurar el RenderTexture si no está asignado
         if (videoPlayer.targetTexture == null)
         {
-            // Crear un RenderTexture y asignarlo al VideoPlayer si no está configurado
-            RenderTexture renderTexture = new RenderTexture(1920, 1080, 0); // Ajusta la resolución si es necesario
+            RenderTexture renderTexture = new RenderTexture(1920, 1080, 0);
             videoPlayer.targetTexture = renderTexture;
         }
 
-        // Asignar el RenderTexture al RawImage para que el video se vea
-        rawImage.texture = videoPlayer.targetTexture;
+        // Asignar el RenderTexture al RawImage
+        if (rawImage != null)
+        {
+            rawImage.texture = videoPlayer.targetTexture;
+        }
+
+        // Asignar eventos al VideoPlayer para depuración
+        videoPlayer.errorReceived += OnVideoError;
+        videoPlayer.prepareCompleted += OnVideoPrepared;
+    }
+
+    private void OnDestroy()
+    {
+        // Liberar el RenderTexture si está asignado
+        if (videoPlayer.targetTexture != null)
+        {
+            videoPlayer.targetTexture.Release();
+        }
+    }
+
+    private void OnVideoError(VideoPlayer source, string message)
+    {
+        Debug.LogError($"Error en el VideoPlayer: {message}");
+    }
+
+    private void OnVideoPrepared(VideoPlayer source)
+    {
+        Debug.Log("El VideoPlayer está preparado.");
     }
 
     public void AbrirPanel()
@@ -44,38 +69,18 @@ public class GeneratorManager : MonoBehaviour
         panelGenerador.SetActive(true);
     }
 
-    // Métodos públicos para que Unity los reconozca en OnClick
-    public void CambiarEstadoInterruptor1()
-    {
-        CambiarEstadoInterruptor(ref estadoInterruptor1, interruptor1);
-    }
-
-    public void CambiarEstadoInterruptor2()
-    {
-        CambiarEstadoInterruptor(ref estadoInterruptor2, interruptor2);
-    }
-
-    public void CambiarEstadoInterruptor3()
-    {
-        CambiarEstadoInterruptor(ref estadoInterruptor3, interruptor3);
-    }
-
-    public void CambiarEstadoInterruptor4()
-    {
-        CambiarEstadoInterruptor(ref estadoInterruptor4, interruptor4);
-    }
-
-    public void CambiarEstadoInterruptor5()
-    {
-        CambiarEstadoInterruptor(ref estadoInterruptor5, interruptor5);
-    }
+    // Métodos para cambiar el estado de los interruptores
+    public void CambiarEstadoInterruptor1() => CambiarEstadoInterruptor(ref estadoInterruptor1, interruptor1);
+    public void CambiarEstadoInterruptor2() => CambiarEstadoInterruptor(ref estadoInterruptor2, interruptor2);
+    public void CambiarEstadoInterruptor3() => CambiarEstadoInterruptor(ref estadoInterruptor3, interruptor3);
+    public void CambiarEstadoInterruptor4() => CambiarEstadoInterruptor(ref estadoInterruptor4, interruptor4);
+    public void CambiarEstadoInterruptor5() => CambiarEstadoInterruptor(ref estadoInterruptor5, interruptor5);
 
     private void CambiarEstadoInterruptor(ref bool estado, Button boton)
     {
-        estado = !estado; // Cambiar el estado
+        estado = !estado;
         Debug.Log($"Interruptor cambiado: {boton.name}, Estado: {estado}");
 
-        // Verificar si el botón tiene un componente Image antes de asignar el sprite
         if (boton.image != null)
         {
             boton.image.sprite = estado ? spriteOn : spriteOff;
@@ -85,26 +90,23 @@ public class GeneratorManager : MonoBehaviour
             Debug.LogError($"El botón {boton.name} no tiene un componente Image asignado.");
         }
 
-        RevisarGenerador(); // Revisar si el generador debe activarse
+        RevisarGenerador();
     }
 
     private void RevisarGenerador()
     {
         int interruptoresEncendidos = 0;
 
-        // Contamos cuántos de los interruptores 1, 2 y 3 están encendidos
         if (estadoInterruptor1) interruptoresEncendidos++;
         if (estadoInterruptor2) interruptoresEncendidos++;
         if (estadoInterruptor3) interruptoresEncendidos++;
 
-        // Verificar si los interruptores 4 y 5 están apagados
         if (estadoInterruptor4 || estadoInterruptor5)
         {
-            DesactivarGenerador(); // Desactivar si 4 o 5 están encendidos
+            DesactivarGenerador();
             return;
         }
 
-        // Si 3 interruptores de los primeros 3 están encendidos y 4 y 5 están apagados
         if (interruptoresEncendidos == 3)
         {
             ActivarGenerador();
@@ -117,19 +119,26 @@ public class GeneratorManager : MonoBehaviour
 
     private void ActivarGenerador()
     {
-        if (!videoPlayer.isPlaying)
+        if (!videoPlayer.isPrepared)
         {
-            videoPlayer.Play(); // Asegúrate de que el video comience a reproducirse
-            Debug.Log("¡Generador Activado!");
+            videoPlayer.Prepare();
+            videoPlayer.prepareCompleted += (source) => videoPlayer.Play();
         }
+        else if (!videoPlayer.isPlaying)
+        {
+            videoPlayer.Play();
+        }
+
+        Debug.Log("¡Generador Activado!");
     }
 
     private void DesactivarGenerador()
     {
         if (videoPlayer.isPlaying)
         {
-            videoPlayer.Stop(); // Detener el video si no es necesario
-            Debug.Log("Generador Desactivado");
+            videoPlayer.Stop();
         }
+
+        Debug.Log("Generador Desactivado");
     }
 }

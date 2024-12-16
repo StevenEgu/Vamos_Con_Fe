@@ -436,7 +436,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: a9fa59547a1754541b196a7d2d0628b5, type: 2}
+  m_Texture: {fileID: 8400000, guid: e692f275a9fcfc2419cdb274e8f6dfa4, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -458,17 +458,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60448628}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 5677837675018121888}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1344.5334, y: 527.8989}
-  m_SizeDelta: {x: 163.6183, y: 164.2844}
+  m_AnchoredPosition: {x: 36.4983, y: -48.888}
+  m_SizeDelta: {x: 1052.3687, y: 891.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &120421039
 GameObject:
@@ -7697,11 +7697,11 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501394749}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 0654b36ecf1351341a2de8167843f895, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 1b10432e3bf6c9648a25db1c340a081d, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: a9fa59547a1754541b196a7d2d0628b5, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: e692f275a9fcfc2419cdb274e8f6dfa4, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -7711,14 +7711,12 @@ VideoPlayer:
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
   m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0
@@ -7741,8 +7739,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1344.7, y: 526.7331}
-  m_SizeDelta: {x: 162.619, y: 164.6174}
+  m_AnchoredPosition: {x: 962.3238, y: 529.06305}
+  m_SizeDelta: {x: 978.6198, y: 982.2875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1516472280
 GameObject:
@@ -9669,6 +9667,9 @@ PrefabInstance:
       addedObject: {fileID: 1516472281}
     - targetCorrespondingSourceObject: {fileID: 624493442300310266, guid: eab69835226ee924888a92527b7f7c37, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 60448631}
+    - targetCorrespondingSourceObject: {fileID: 624493442300310266, guid: eab69835226ee924888a92527b7f7c37, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1083979154}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6397917676251405484, guid: eab69835226ee924888a92527b7f7c37, type: 3}
@@ -9715,5 +9716,4 @@ SceneRoots:
   - {fileID: 1360181422}
   - {fileID: 412250058}
   - {fileID: 176773975}
-  - {fileID: 60448631}
   - {fileID: 1501394752}
