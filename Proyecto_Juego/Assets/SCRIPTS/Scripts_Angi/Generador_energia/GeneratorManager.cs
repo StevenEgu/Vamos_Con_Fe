@@ -11,9 +11,12 @@ public class GeneratorManager : MonoBehaviour
     public RawImage rawImage;
     public GameObject VideoPlay;
 
-    // Sprites para los estados On y Off
+    // Sprite para los estados On y Off
     public Sprite spriteOn;
     public Sprite spriteOff;
+
+    // Panel de oscuridad
+    public GameObject panelOscuridad;  // Referencia al panel de oscuridad (puede ser un panel negro o similar)
 
     // Estados de los interruptores
     private bool estadoInterruptor1 = false;
@@ -88,6 +91,13 @@ public class GeneratorManager : MonoBehaviour
 
         // Cerrar el panel
         panelGenerador.SetActive(false);
+
+        // Desactivar el panel de oscuridad
+        if (panelOscuridad != null)
+        {
+            panelOscuridad.SetActive(false);  // Desactiva el panel de oscuridad
+        }
+
         Debug.Log("Panel cerrado porque el video ha terminado.");
     }
 
