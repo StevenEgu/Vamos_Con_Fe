@@ -9,6 +9,7 @@ public class GeneratorManager : MonoBehaviour
     public Button interruptor1, interruptor2, interruptor3, interruptor4, interruptor5;
     public VideoPlayer videoPlayer;
     public RawImage rawImage;
+    public GameObject VideoPlay;
 
     // Sprites para los estados On y Off
     public Sprite spriteOn;
@@ -24,7 +25,7 @@ public class GeneratorManager : MonoBehaviour
     private void Start()
     {
         // Inicializar el panel y el VideoPlayer
-        panelGenerador.SetActive(false);
+        VideoPlay.SetActive(false);
         videoPlayer.Stop();
 
         // Configurar el RenderTexture si no está asignado
@@ -43,6 +44,9 @@ public class GeneratorManager : MonoBehaviour
         // Asignar eventos al VideoPlayer para depuración
         videoPlayer.errorReceived += OnVideoError;
         videoPlayer.prepareCompleted += OnVideoPrepared;
+
+        // Registrar el evento de finalización del video
+        videoPlayer.loopPointReached += OnVideoEnd;  // Esto se ejecutará cuando el video termine
     }
 
     private void OnDestroy()
@@ -62,6 +66,29 @@ public class GeneratorManager : MonoBehaviour
     private void OnVideoPrepared(VideoPlayer source)
     {
         Debug.Log("El VideoPlayer está preparado.");
+    }
+
+    // Evento que se llama cuando el video ha terminado de reproducirse
+    private void OnVideoEnd(VideoPlayer source)
+    {
+        Debug.Log("El video ha terminado.");
+
+        // Detener el video
+        if (videoPlayer.isPlaying)
+        {
+            videoPlayer.Stop();
+        }
+
+        // Desactivar el VideoPlayer y el RawImage
+        videoPlayer.gameObject.SetActive(false);  // Desactiva el GameObject que contiene el VideoPlayer
+        rawImage.gameObject.SetActive(false);     // Desactiva el GameObject que contiene el RawImage
+
+        // También desactivamos el contenedor VideoPlay si es necesario
+        VideoPlay.SetActive(false);
+
+        // Cerrar el panel
+        panelGenerador.SetActive(false);
+        Debug.Log("Panel cerrado porque el video ha terminado.");
     }
 
     public void AbrirPanel()
@@ -122,6 +149,8 @@ public class GeneratorManager : MonoBehaviour
         if (!videoPlayer.isPrepared)
         {
             videoPlayer.Prepare();
+            VideoPlay.SetActive(true);
+
             videoPlayer.prepareCompleted += (source) => videoPlayer.Play();
         }
         else if (!videoPlayer.isPlaying)
