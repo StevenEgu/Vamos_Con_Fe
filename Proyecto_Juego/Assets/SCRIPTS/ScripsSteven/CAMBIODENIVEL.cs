@@ -15,7 +15,7 @@ public class CAMBIODENIVEL : MonoBehaviour
     void Update()
     {
         // Detectar si el jugador presiona la tecla 'E' para cambiar de nivel
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             CambiarNivel();
         }

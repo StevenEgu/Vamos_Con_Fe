@@ -73,7 +73,7 @@ public class DIALOGOSIMPLE : MonoBehaviour
         dialoguePanel.SetActive(true);
         dialoguePlayer.SetActive(false);
         lineIndex = 0;
-        Time.timeScale = 0f;
+        Time.timeScale = 0f;  // Pausar la escena mientras se muestra el diálogo
         StartCoroutine(ShowLine());
     }
 
@@ -84,8 +84,12 @@ public class DIALOGOSIMPLE : MonoBehaviour
         foreach (char ch in dialogueLines[lineIndex])
         {
             dialogueText.text += ch;
-            yield return new WaitForSecondsRealtime(0.05f);  // Efecto de máquina de escribir
+            yield return new WaitForSecondsRealtime(0.05f);  // Efecto de máquina de escribir (no se ve afectado por Time.timeScale)
         }
+
+        // Esperamos a que termine el texto antes de reanudar el juego
+        yield return new WaitForSecondsRealtime(0.5f); // Un pequeño retraso al final del diálogo, ajustable si quieres
+        Time.timeScale = 1f;  // Reanudar el juego después de mostrar el texto
     }
 
     private void ShowPlayerDialogue()
@@ -105,11 +109,14 @@ public class DIALOGOSIMPLE : MonoBehaviour
         foreach (char ch in playerDialogue)
         {
             playerDialogueText.text += ch;  // Agregar una letra a la vez
-            yield return new WaitForSeconds(0.05f);  // Efecto de máquina de escribir
+            yield return new WaitForSecondsRealtime(0.05f);  // Efecto de máquina de escribir (no se ve afectado por Time.timeScale)
         }
 
         // Esperar unos segundos antes de ocultar el panel
         yield return new WaitForSeconds(playerDialogueDuration);
+
+        // Reanudar el juego después de que se haya mostrado el diálogo
+        Time.timeScale = 1f;
 
         // Ocultar el panel después del tiempo especificado
         playerDialoguePanel.SetActive(false);

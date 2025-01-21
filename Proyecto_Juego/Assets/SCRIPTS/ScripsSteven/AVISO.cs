@@ -4,7 +4,6 @@ using TMPro; // Necesario para usar TextMeshPro
 
 public class AVISO : MonoBehaviour
 {
-
     [Header("Corrutina para Aviso")]
     [Space(10)]
     [SerializeField] private GameObject anuncio; // Panel o elemento de aviso que se activa/desactiva
@@ -20,7 +19,7 @@ public class AVISO : MonoBehaviour
 
     private bool hasBeenTriggered = false; // Para evitar que el evento se dispare más de una vez
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         // Solo mostrar los mensajes si el jugador entra en la zona y aún no han sido mostrados
         if (collision.gameObject.CompareTag("Player") && !hasBeenTriggered)

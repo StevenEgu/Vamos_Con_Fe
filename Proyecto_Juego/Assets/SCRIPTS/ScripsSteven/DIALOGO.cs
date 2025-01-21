@@ -80,6 +80,7 @@ public class DIALOGO : MonoBehaviour
         dialoguePanel.SetActive(false);
         questionPanel.SetActive(true); // Abre el panel de la pregunta.
         Time.timeScale = 0f;
+        Time.timeScale = 1f;
     }
 
     // Métodos para manejar las opciones de los botones

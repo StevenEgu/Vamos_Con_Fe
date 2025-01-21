@@ -11,6 +11,8 @@ public class ActivateLightAndShowMessage : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.05f; // La velocidad con la que aparece el texto.
     [SerializeField] private float timeToDisappear = 3f; // Tiempo que el mensaje permanece en pantalla antes de desaparecer.
 
+    private bool isMessageActive = false; // Control de si el mensaje está siendo mostrado.
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Comprueba si el objeto que colisionó tiene la etiqueta "Player"
@@ -28,6 +30,10 @@ public class ActivateLightAndShowMessage : MonoBehaviour
 
     public void OnButtonPress()
     {
+        // Si el mensaje ya está activo, no hacer nada
+        if (isMessageActive)
+            return;
+
         // Acción del botón: eliminar el objeto
         if (objectToDestroy != null)
         {
@@ -43,6 +49,7 @@ public class ActivateLightAndShowMessage : MonoBehaviour
 
     private IEnumerator ShowMessageWithTypingEffect()
     {
+        isMessageActive = true; // Marcar que el mensaje está activo.
         messageText.gameObject.SetActive(true); // Aseguramos que el texto se activa
         messageText.text = ""; // Limpiamos el texto antes de mostrarlo.
 
@@ -57,5 +64,6 @@ public class ActivateLightAndShowMessage : MonoBehaviour
         yield return new WaitForSeconds(timeToDisappear);
 
         messageText.text = ""; // Borramos el mensaje después del tiempo configurado.
+        isMessageActive = false; // Marcar que el mensaje ha terminado.
     }
 }

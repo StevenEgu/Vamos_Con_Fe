@@ -10,7 +10,7 @@ public class CAMBIODEESCENACONE : MonoBehaviour
 
     // Variable pública para el índice de la escena que se cambiará. 
     // Esto permite que puedas asignar el índice de la escena desde el Inspector.
-    [SerializeField] private int escenaSiguiente = 6; // Índice de la escena que quieres cargar
+    [SerializeField] private int escenaSiguiente; // Índice de la escena que quieres cargar
 
     // Start is called before the first frame update
     void Start()
