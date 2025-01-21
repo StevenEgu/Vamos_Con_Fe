@@ -36,10 +36,10 @@ EditorBuildSettings:
     path: Assets/Scenes/NIVEL1/Habitacion.unity
     guid: d33af1fa07ebff946aa075d8992ac6c5
   - enabled: 1
-    path: Assets/Scenes/NIVEL2/Escena_Calle.unity
+    path: Assets/Scenes/Nivel2/Escena_Calle.unity
     guid: 13c97e8a62f728041b60938409f68118
   - enabled: 1
-    path: Assets/Scenes/NIVEL2/Escena_Farola_arreglada.unity
+    path: Assets/Scenes/Nivel2/Escena_Farola_arreglada.unity
     guid: f98f6be891336bb4c9edb2b8dcd2bbb7
   - enabled: 1
     path: Assets/Scenes/NIVEL3/SALA_CONTROLES.unity
@@ -54,7 +54,7 @@ EditorBuildSettings:
     path: Assets/Scenes/NIVEL3/Juego.unity
     guid: feb4b055d1ddd3d40b1ec470cba9f633
   - enabled: 1
-    path: Assets/Scenes/NIVEL2/Nivel_Cable/Cableado.unity
+    path: Assets/Scenes/Nivel2/Nivel_Cable/Cableado.unity
     guid: 1cae8ce076e6e1f439e4dc3d33d792e8
   - enabled: 1
     path: Assets/Scenes/NIVELFINAL/NIVEL4.unity
@@ -68,4 +68,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NIVEL3/NIVEL3NoMonster.unity
     guid: 12ec16b14cdf4a344b1613b3a77cbdcf
+  - enabled: 1
+    path: Assets/Scenes/INTRO.unity
+    guid: a413da720bb1bf14b9ecd7df6c936672
   m_configObjects: {}
