@@ -341,31 +341,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 27334952}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 693887469}
-        m_TargetAssemblyTypeName: CAMBIODEESCENA, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Intro
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 27334955}
-        m_TargetAssemblyTypeName: ButtonSoundAndChangeScene, Assembly-CSharp
-        m_MethodName: OnButtonClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &27334952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +395,7 @@ MonoBehaviour:
   yourButton: {fileID: 27334951}
   audioSource: {fileID: 1034930182}
   clickSound: {fileID: 8300000, guid: 1f1dae04b009ad34994dff2d1ef6045a, type: 3}
-  sceneToLoad: Sotano
+  sceneToLoad: Inicio
 --- !u!114 &27334956
 MonoBehaviour:
   m_ObjectHideFlags: 0
