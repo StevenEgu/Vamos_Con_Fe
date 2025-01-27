@@ -679,7 +679,7 @@ MonoBehaviour:
   typingSound: {fileID: 8300000, guid: 313a0ae366ee33c46b0226e857b9a032, type: 3}
   voiceSound: {fileID: 8300000, guid: 0aba1e5c302c3b1448a5a8ad8ffe1151, type: 3}
   fadeImage: {fileID: 837202663}
-  fadeDuration: 1
+  fadeDuration: 1.5
 --- !u!4 &1308908961
 Transform:
   m_ObjectHideFlags: 0
@@ -781,7 +781,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
