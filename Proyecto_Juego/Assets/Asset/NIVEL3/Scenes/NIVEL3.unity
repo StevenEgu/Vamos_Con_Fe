@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 2089375039}
   - component: {fileID: 2089375038}
   m_Layer: 0
-  m_Name: ciclocaminar_0
+  m_Name: "NI\xD1A"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
