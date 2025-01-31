@@ -21,6 +21,7 @@ TagManager:
   - Ground
   - Objeto
   - Colision
+  - Linterna
   layers:
   - Default
   - TransparentFX

@@ -7672,6 +7672,7 @@ GameObject:
   - component: {fileID: 1173514941}
   - component: {fileID: 1173514934}
   - component: {fileID: 1173514942}
+  - component: {fileID: 1173514943}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7754,7 +7755,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2285714, y: 1.9523809}
+    oldSize: {x: 0.6, y: 1.175}
     newSize: {x: 0.8, y: 0.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -7804,7 +7805,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 1191708935, guid: bdfcf0b3053730a4fafa2a002641aa64, type: 3}
+  m_Sprite: {fileID: 1119953968, guid: 9c8c0dd90ec554543a85a0f136a06adf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7857,9 +7858,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
-  m_LightType: 3
+  m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.673
+  m_FalloffIntensity: 0.7
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 0.2
@@ -7878,22 +7879,44 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.32
-  m_PointLightOuterRadius: 1.04
+    m_Center: {x: 2.695, y: 0.4482, z: 0}
+    m_Extent: {x: 2.9092, y: 2.7236, z: 0}
+  m_PointLightInnerAngle: 10.470423
+  m_PointLightOuterAngle: 60.90632
+  m_PointLightInnerRadius: 1.7
+  m_PointLightOuterRadius: 8.74
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffSize: 0.37
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
+  - {x: 0.15564442, y: -0.13495994, z: 0}
+  - {x: 5.161953, y: -1.9085448, z: 0}
+  - {x: 4.93952, y: 0.13998377, z: 0}
+  - {x: 5.237234, y: 2.8028827, z: 0}
+  - {x: 0.15564442, y: 0.019165874, z: 0}
+--- !u!95 &1173514943
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173514933}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 584feb6ee51b75849a2bea1793d9b160, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1178761443
 GameObject:
   m_ObjectHideFlags: 0
