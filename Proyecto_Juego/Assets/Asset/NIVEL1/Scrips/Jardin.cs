@@ -25,7 +25,7 @@ public class Jardin : MonoBehaviour
     public void CambiarNivel()
     {
         // Cambiar al nivel con índice 6
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(5);
     }
 
     // Detectar colisión con un objeto que tenga el tag "Jardin"
@@ -35,7 +35,7 @@ public class Jardin : MonoBehaviour
         {
             Debug.Log("Tocando algo");
             // Cambiar al nivel con índice 6
-            SceneManager.LoadScene(6);
+            SceneManager.LoadScene(5);
         }
     }
 }
