@@ -44,7 +44,7 @@ public class TeleportTrigger : MonoBehaviour
         if (targetLocation != null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.transform.position = targetLocation.position;
+            player.transform.position = targetLocation.position;  // Cambia la posición del jugador
         }
     }
 

@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class CambioHabitacion : MonoBehaviour
 {
-    public Vector3 posicionEspecifica;  // Nueva posición en la que queremos que aparezca el jugador
+    public Vector3 playerSpawnPosition;  // Nueva posición donde el jugador aparecerá
 
     public void ChangeScene(string sceneName)
     {
@@ -15,26 +15,25 @@ public class CambioHabitacion : MonoBehaviour
 
         // Cargar la nueva escena
         SceneManager.LoadScene(sceneName);
-
-        // Una vez que la escena se cargue, podemos mover al jugador a la nueva posición
-        // Esto se puede hacer en el método OnSceneLoaded
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    // Al cargar una nueva escena, mover al jugador a la nueva posición
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
     {
-        // Esto se llama cuando una escena se ha cargado
-        if (GameManager.Instance != null)
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
         {
-            // Asegurarse de que el jugador se mueva a la posición correcta
-            Transform playerTransform = GameObject.FindWithTag("Player").transform;
-            if (playerTransform != null)
-            {
-                playerTransform.position = GameManager.Instance.playerPosition != Vector3.zero ? GameManager.Instance.playerPosition : posicionEspecifica;
-            }
+            player.transform.position = playerSpawnPosition;  // Mueve al jugador a la nueva posición
         }
+    }
 
-        // Desuscribir para evitar llamadas repetidas
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;  // Escuchar cuando una escena se ha cargado
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;  // Desescuchar cuando se desactive este script
     }
 }
