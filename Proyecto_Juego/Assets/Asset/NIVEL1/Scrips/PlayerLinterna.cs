@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;  // Necesario para trabajar con botones de UI
+using System.Collections;  // Asegúrate de incluir este "using" para trabajar con coroutines
 
 public class PlayerLinterna : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerLinterna : MonoBehaviour
 
     [Header("Configuración de Parpadeo")]
     public float tiempoEntreParpadeos = 5f; // Tiempo en segundos entre cada parpadeo (ajustable en el Inspector)
+
+    public Button botonLinterna;  // Referencia al botón de la UI que el jugador presionará para recoger la linterna
 
     void Start()
     {
@@ -22,6 +25,16 @@ public class PlayerLinterna : MonoBehaviour
         else
         {
             Debug.LogWarning("No se ha asignado el componente Light2D en el Inspector.");
+        }
+
+        // Si el botón es asignado, conectamos el evento al método "RecogerLinterna"
+        if (botonLinterna != null)
+        {
+            botonLinterna.onClick.AddListener(RecogerLinterna);
+        }
+        else
+        {
+            Debug.LogWarning("No se ha asignado el botón de la linterna en el Inspector.");
         }
     }
 
@@ -45,6 +58,17 @@ public class PlayerLinterna : MonoBehaviour
 
                 linternaLuz.enabled = false;
             }
+        }
+    }
+
+    // Método para activar la linterna cuando se hace clic en el botón
+    private void RecogerLinterna()
+    {
+        if (!tieneLinterna) // Si no tienes la linterna aún
+        {
+            tieneLinterna = true;
+            botonLinterna.gameObject.SetActive(false); // Desactiva el botón después de hacer clic
+            linternaLuz.enabled = true; // Activa la linterna
         }
     }
 
@@ -73,15 +97,6 @@ public class PlayerLinterna : MonoBehaviour
                 linternaLuz.enabled = true;
                 yield return new WaitForSeconds(0.1f);
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Linterna"))
-        {
-            tieneLinterna = true;
-            Destroy(other.gameObject); // Desaparece la linterna cuando la agarras
         }
     }
 }
