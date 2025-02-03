@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;  // Necesario para usar TextMeshPro
 
 public class CAMBIODEESCENACONE : MonoBehaviour
 {
@@ -13,17 +12,10 @@ public class CAMBIODEESCENACONE : MonoBehaviour
     // Esto permite que puedas asignar el índice de la escena desde el Inspector.
     [SerializeField] private int escenaSiguiente; // Índice de la escena que quieres cargar
 
-    // Referencia al texto de TMP que aparecerá cuando el jugador esté en el trigger
-    [SerializeField] private TMP_Text mensajeTexto;  // Referencia al texto de TMP
-
     // Start is called before the first frame update
     void Start()
     {
-        // Asegúrate de que el texto esté desactivado al principio
-        if (mensajeTexto != null)
-        {
-            mensajeTexto.gameObject.SetActive(false);
-        }
+        // Inicialización si es necesario
     }
 
     // Update is called once per frame
@@ -52,13 +44,6 @@ public class CAMBIODEESCENACONE : MonoBehaviour
         {
             Debug.Log("Jugador dentro del trigger. Presiona E para cambiar de nivel.");
             dentroDelTrigger = true; // Activar la opción de presionar "E"
-
-            // Mostrar el mensaje en el texto de TMP
-            if (mensajeTexto != null)
-            {
-                mensajeTexto.gameObject.SetActive(true);  // Mostrar el texto
-                mensajeTexto.text = "Presiona E para cambiar de nivel";  // Cambiar el texto
-            }
         }
     }
 
@@ -70,12 +55,6 @@ public class CAMBIODEESCENACONE : MonoBehaviour
         {
             Debug.Log("Jugador fuera del trigger.");
             dentroDelTrigger = false; // Desactivar la opción de presionar "E"
-
-            // Ocultar el mensaje cuando el jugador salga del trigger
-            if (mensajeTexto != null)
-            {
-                mensajeTexto.gameObject.SetActive(false);  // Ocultar el texto
-            }
         }
     }
 }
