@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Asset/NIVEL1/Scenes/Jardin.unity
     guid: 48eb90415c0cd074e9e44c802d601f76
-  - enabled: 1
+  - enabled: 0
     path: Assets/Asset/NIVEL1/Scenes/Covertizo.unity
     guid: 29662b97dafbfe8488195e377cf55394
   - enabled: 1
