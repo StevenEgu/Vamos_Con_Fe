@@ -1212,7 +1212,7 @@ Transform:
   m_GameObject: {fileID: 292154895}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.09, y: -2.1, z: 0}
+  m_LocalPosition: {x: 1.17, y: -2.1, z: 0}
   m_LocalScale: {x: 0.19523434, y: 0.19523434, z: 0.19523434}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 831078598}
-  objectToDestroy: {fileID: 487876734}
+  objectToDestroy: {fileID: 0}
   messageText: {fileID: 701466667}
   message: "\xA1Vaya,parece que se encendieron las luces del auto!"
   typingSpeed: 0.05
@@ -1395,6 +1395,8 @@ MonoBehaviour:
   alturaMin: 1.08
   speed: 5
   encendida: 1
+  fadeImage: {fileID: 0}
+  fadeSpeed: 2
 --- !u!114 &302111687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2276,6 +2278,8 @@ GameObject:
   - component: {fileID: 487876740}
   - component: {fileID: 487876737}
   - component: {fileID: 487876739}
+  - component: {fileID: 487876741}
+  - component: {fileID: 487876742}
   m_Layer: 0
   m_Name: Enemigo
   m_TagString: Untagged
@@ -2344,7 +2348,7 @@ Transform:
   m_GameObject: {fileID: 487876734}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.29, y: -2.6719, z: 0}
+  m_LocalPosition: {x: 9.45, y: -2.6719, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2473,6 +2477,43 @@ MonoBehaviour:
   playerDialogueText: {fileID: 988432760}
   playerDialogue: "\xA1Enciende las luces del auto!"
   playerDialogueDuration: 0.1
+--- !u!95 &487876741
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487876734}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5198e2d9f99690b49976bc329908af62, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &487876742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487876734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec82bc3178480f84da376d9556b4831e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAnimator: {fileID: 487876741}
+  animationTriggerName: Leave
+  moveSpeed: 0.1
+  moveDirection: {x: 25.93, y: -2.6719, z: 0}
 --- !u!1 &640751284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5840,7 +5881,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.48, y: 0.94}
+    oldSize: {x: 0.53333336, y: 1.0444444}
     newSize: {x: 0.8, y: 0.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6046,6 +6087,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 487876742}
+        m_TargetAssemblyTypeName: EnemyMoveWithAnimation, Assembly-CSharp
+        m_MethodName: OnButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1920498910}
         m_TargetAssemblyTypeName: ABRIRPANELK, Assembly-CSharp
         m_MethodName: OpenPanel
