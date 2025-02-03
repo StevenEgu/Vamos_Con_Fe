@@ -6,7 +6,7 @@ public class Texto_indicación : MonoBehaviour
 {
     string frase = "...para interactuar, pulsa E...";
     public TMP_Text texto; // Cambiar a TMP_Text
-    public float tiempoDesvanecimiento = 1f; // Duración del desvanecimiento
+    public float tiempoDesvanecimiento = 0.5f; // Duración del desvanecimiento
     public GameObject jugador; // Referencia al jugador
     private MonoBehaviour PlayerController; // Referencia al script de movimiento
 
