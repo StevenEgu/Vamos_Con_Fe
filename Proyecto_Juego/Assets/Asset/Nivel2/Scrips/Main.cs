@@ -30,9 +30,9 @@ public class Main : MonoBehaviour
     private void Update()
     {
         // Si se presiona la tecla R, recargamos la escena actual
-        if (Input.GetKeyDown(KeyCode.R))
+       /* if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);  // Recargamos la escena
-        }
+        */
     }
 }
