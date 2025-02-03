@@ -7,6 +7,7 @@ public class SliderControl : MonoBehaviour
     public Slider slider; // El slider en el panel
     public GameObject objectToHide; // El objeto que se esconderá cuando se presione el botón
     public GameObject objectToDestroy; // El objeto que se destruirá cuando el slider esté lleno
+    public GameObject panel; // El panel que contiene el slider y otros elementos de control
 
     // Variables de control
     public float sliderIncrement = 0.1f; // Cuánto sube el slider por cada recogida
@@ -16,16 +17,16 @@ public class SliderControl : MonoBehaviour
 
     void Start()
     {
-        // Verificamos si el slider está asignado correctamente
-        if (slider == null)
+        // Verificamos si el slider y el panel están asignados correctamente
+        if (slider == null || panel == null)
         {
-            Debug.LogError("Slider no asignado en el inspector.");
+            Debug.LogError("Slider o Panel no asignados en el inspector.");
             return;
         }
 
-        // Inicialmente deshabilitamos el slider
+        // Inicialmente deshabilitamos el slider y el panel
         slider.gameObject.SetActive(false);
-       // slider.value = 0f; // Aseguramos que el slider comienza desde 0
+        panel.SetActive(false); // Aseguramos que el panel esté oculto al principio
         slider.maxValue = maxSliderValue; // Aseguramos que el maxValue del slider sea el valor máximo deseado
 
         Debug.Log("Slider Inicializado. Valor máximo: " + maxSliderValue);
@@ -44,17 +45,18 @@ public class SliderControl : MonoBehaviour
         Debug.Log("Recogiendo el objeto. El objeto se desactivará.");
         objectToHide.SetActive(false);
 
-        // Activamos el slider
+        // Activamos el panel y el slider
+        panel.SetActive(true); // Activamos el panel
         slider.gameObject.SetActive(true); // Activamos el slider
-        //slider.value += sliderIncrement;   // Incrementamos el valor del slider
+
+        // Pausamos el juego cuando se abre el panel
+        Time.timeScale = 0f; // Pausamos el juego
 
         // Mostramos el valor del slider en la consola
         Debug.Log("Valor actual del Slider: " + slider.value);
-
-        // Verificamos si el slider ha llegado al valor máximo
-      
     }
 
+    // Método para actualizar el valor del slider
     public void SliderValue()
     {
         if (slider.value >= maxSliderValue)
@@ -73,11 +75,24 @@ public class SliderControl : MonoBehaviour
             Destroy(objectToDestroy); // Destruimos el objeto
             objectDestroyed = true; // Marcamos que el objeto fue destruido
             slider.gameObject.SetActive(false); // Desactivamos el slider
+            panel.SetActive(false); // Desactivamos el panel
             Debug.Log("El objeto ha sido destruido.");
         }
         else
         {
             Debug.Log("El objeto ya fue destruido previamente.");
         }
+    }
+
+    // Método para cerrar el panel y reanudar el juego
+    public void ClosePanel()
+    {
+        // Desactivamos el panel y el slider
+        panel.SetActive(false);
+        slider.gameObject.SetActive(false);
+
+        // Reanudamos el juego cuando se cierra el panel
+        Time.timeScale = 1f; // Reanudamos el juego
+        Debug.Log("El panel se ha cerrado, el juego continúa.");
     }
 }
