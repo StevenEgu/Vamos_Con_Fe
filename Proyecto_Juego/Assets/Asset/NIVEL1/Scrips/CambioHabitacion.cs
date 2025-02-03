@@ -4,7 +4,21 @@ using UnityEngine.SceneManagement;
 public class CambioHabitacion : MonoBehaviour
 {
     public Vector3 playerSpawnPosition;  // Nueva posición donde el jugador aparecerá
+    private bool dentroDelTrigger = false; // Verifica si el jugador está dentro del área del trigger
 
+    public string sceneName; // Nombre de la escena a cargar
+
+    // Método que se llama cuando el jugador presiona "E" dentro del trigger
+    void Update()
+    {
+        // Si el jugador está dentro del trigger y presiona la tecla 'E', cambiar de nivel
+        if (dentroDelTrigger && Input.GetKeyDown(KeyCode.E))
+        {
+            ChangeScene(sceneName);  // Cambiar a la escena especificada
+        }
+    }
+
+    // Método para cambiar de escena
     public void ChangeScene(string sceneName)
     {
         // Guardar la posición actual del jugador antes de cambiar de escena
@@ -35,5 +49,23 @@ public class CambioHabitacion : MonoBehaviour
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;  // Desescuchar cuando se desactive este script
+    }
+
+    // Detectar cuando el jugador entra en el trigger
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            dentroDelTrigger = true;  // El jugador está dentro del trigger
+        }
+    }
+
+    // Detectar cuando el jugador sale del trigger
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            dentroDelTrigger = false;  // El jugador sale del trigger
+        }
     }
 }

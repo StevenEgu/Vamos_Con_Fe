@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe4048e8929cb848931863e30f2b30c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posicionEspecifica: {x: 28.5, y: 7.08, z: 0}
+  playerSpawnPosition: {x: 28.5, y: 7.08, z: 0}
   sceneName: SALA
 --- !u!61 &263748407
 BoxCollider2D:
