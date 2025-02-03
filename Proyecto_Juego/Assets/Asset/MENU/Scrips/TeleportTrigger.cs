@@ -32,7 +32,7 @@ public class TeleportTrigger : MonoBehaviour
     void Update()
     {
         // Si el jugador está en el trigger y presiona la tecla 'E'
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
             TeleportPlayer();  // Teletransportar al jugador
         }

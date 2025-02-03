@@ -3606,6 +3606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escenaSiguiente: 5
+  mensajeTexto: {fileID: 0}
 --- !u!1 &745009577
 GameObject:
   m_ObjectHideFlags: 0
@@ -8563,7 +8564,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1414340446}
   - component: {fileID: 1414340447}
-  - component: {fileID: 1414340448}
   m_Layer: 0
   m_Name: Armario_Habitacion
   m_TagString: Untagged
@@ -8599,19 +8599,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelPausa: {fileID: 1863866753}
---- !u!114 &1414340448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414340444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a9bfb5b9a984284ba742fe851e76b94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerPosition: {x: 28.5, y: 7.08, z: 0}
 --- !u!1 &1416406272
 GameObject:
   m_ObjectHideFlags: 0
