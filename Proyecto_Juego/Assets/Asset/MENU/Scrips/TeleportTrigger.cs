@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro;  // Importante para usar TextMesh Pro
+using TMPro;
 
 public class TeleportTrigger : MonoBehaviour
 {
