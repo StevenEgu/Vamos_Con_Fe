@@ -52,7 +52,7 @@ public class Control_niña_calle : MonoBehaviour
         }
 
         // Dibuja un rayo para visualizar la posición de playerGroundCheck
-        Debug.DrawRay(playerGroundCheck.position, Vector2.down * 0.1f, Color.red); // Dibuja un rayo hacia abajo
+        //Debug.DrawRay(playerGroundCheck.position, Vector2.down * 0.1f, Color.red); // Dibuja un rayo hacia abajo
     }
 
     // Método para habilitar el movimiento

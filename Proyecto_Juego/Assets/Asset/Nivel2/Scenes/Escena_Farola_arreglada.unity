@@ -993,7 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71f24378e0c42147aa5004439e66d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitsToBreak: 5
+  hitsToBreak: 3
 --- !u!212 &761259049
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2334,8 +2334,8 @@ GameObject:
   - component: {fileID: 1521559309}
   - component: {fileID: 1521559308}
   - component: {fileID: 1521559306}
-  - component: {fileID: 1521559313}
   - component: {fileID: 1521559312}
+  - component: {fileID: 1521559313}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2524,7 +2524,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1521559305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9777dd06f927b3e489aaca80bba46ac0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5001b2b6482e2c740804a9a3e76537c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
@@ -2532,7 +2532,7 @@ MonoBehaviour:
   playerGroundCheck: {fileID: 81562046}
   playerGroundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
 --- !u!1 &1610575991
 GameObject:
   m_ObjectHideFlags: 0

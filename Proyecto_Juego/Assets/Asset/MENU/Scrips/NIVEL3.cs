@@ -31,7 +31,7 @@ public class NIVEL3 : MonoBehaviour
         {
             Debug.Log("Tocando algo");
             int nivelActual = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(13);
+            SceneManager.LoadScene(10);
         }
     }
 }
