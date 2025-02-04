@@ -9,13 +9,14 @@ public class Control_niña_calle : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator animator;
-    private bool isPlayerGrounded = false;  // Renombrado para evitar ambigüedad
-    private bool isMovementEnabled = true; // Renombrado para evitar ambigüedad
+    private bool isPlayerGrounded = false;  // Estado de si está tocando el suelo
+    private bool isMovementEnabled = false; // Si el movimiento está habilitado
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        ActivateMovement();  // Habilitar el movimiento desde el inicio
     }
 
     void Update()
@@ -31,10 +32,14 @@ public class Control_niña_calle : MonoBehaviour
             transform.localScale = new Vector3(Mathf.Sign(move), 1, 1);  // Cambiar la dirección del personaje
 
         // Comprobar si el jugador está en el suelo
-        isPlayerGrounded = Physics2D.OverlapCircle(playerGroundCheck.position, 0.1f, playerGroundLayer);
+        bool isGroundedNow = Physics2D.OverlapCircle(playerGroundCheck.position, 0.1f, playerGroundLayer);
 
-        // Depuración para saber si el personaje está tocando el suelo
-        Debug.Log("Is Grounded: " + isPlayerGrounded);
+        // Solo mostrar el mensaje cuando cambia el estado de "Grounded"
+        if (isGroundedNow != isPlayerGrounded)
+        {
+            isPlayerGrounded = isGroundedNow;
+            Debug.Log("Is Grounded: " + isPlayerGrounded);  // Solo mostrar cuando cambia
+        }
 
         // Animación de movimiento
         animator.SetFloat("Speed", Mathf.Abs(move));
@@ -45,8 +50,10 @@ public class Control_niña_calle : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);  // Aplica una fuerza en Y para saltar
             animator.SetTrigger("Jump");
         }
-    }
 
+        // Dibuja un rayo para visualizar la posición de playerGroundCheck
+        Debug.DrawRay(playerGroundCheck.position, Vector2.down * 0.1f, Color.red); // Dibuja un rayo hacia abajo
+    }
 
     // Método para habilitar el movimiento
     public void ActivateMovement()
