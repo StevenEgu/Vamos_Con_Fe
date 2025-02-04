@@ -23,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Asset/NIVEL1/Scenes/Jardin.unity
     guid: 48eb90415c0cd074e9e44c802d601f76
+<<<<<<< HEAD
+=======
+  - enabled: 0
+    path: Assets/Asset/NIVEL1/Scenes/Covertizo.unity
+    guid: 29662b97dafbfe8488195e377cf55394
+>>>>>>> parent of 6bf8ab9 (Merge branch 'main' of https://github.com/StevenEgu/Vamos_Con_Fe)
   - enabled: 1
     path: Assets/Asset/Nivel2/Scenes/Escena_Calle.unity
     guid: 13c97e8a62f728041b60938409f68118
