@@ -2529,7 +2529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 10
-  playerGroundCheck: {fileID: 0}
+  playerGroundCheck: {fileID: 81562046}
   playerGroundLayer:
     serializedVersion: 2
     m_Bits: 0

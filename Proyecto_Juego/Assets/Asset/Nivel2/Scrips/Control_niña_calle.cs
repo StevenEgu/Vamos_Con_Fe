@@ -10,7 +10,7 @@ public class Control_niña_calle : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private bool isPlayerGrounded = false;  // Renombrado para evitar ambigüedad
-    private bool isMovementEnabled = false; // Renombrado para evitar ambigüedad
+    private bool isMovementEnabled = true; // Renombrado para evitar ambigüedad
 
     void Start()
     {
@@ -33,6 +33,9 @@ public class Control_niña_calle : MonoBehaviour
         // Comprobar si el jugador está en el suelo
         isPlayerGrounded = Physics2D.OverlapCircle(playerGroundCheck.position, 0.1f, playerGroundLayer);
 
+        // Depuración para saber si el personaje está tocando el suelo
+        Debug.Log("Is Grounded: " + isPlayerGrounded);
+
         // Animación de movimiento
         animator.SetFloat("Speed", Mathf.Abs(move));
 
@@ -43,6 +46,7 @@ public class Control_niña_calle : MonoBehaviour
             animator.SetTrigger("Jump");
         }
     }
+
 
     // Método para habilitar el movimiento
     public void ActivateMovement()
