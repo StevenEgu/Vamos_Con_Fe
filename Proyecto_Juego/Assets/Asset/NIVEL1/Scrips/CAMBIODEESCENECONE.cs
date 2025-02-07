@@ -66,16 +66,16 @@ public class CAMBIODEESCENACONE : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         // Verificar si el jugador sale del trigger
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Jugador fuera del trigger.");
-            dentroDelTrigger = false; // Desactivar la opción de presionar "E"
+       // if (collision.gameObject.CompareTag("Player"))
+      //  {
+        //    Debug.Log("Jugador fuera del trigger.");
+        //    dentroDelTrigger = false; // Desactivar la opción de presionar "E"
 
             // Ocultar el mensaje cuando el jugador salga del trigger
-            if (mensajeTexto != null)
-            {
-                mensajeTexto.gameObject.SetActive(false);  // Ocultar el texto
-            }
-        }
+         //   if (mensajeTexto != null)
+          //  {
+            //    mensajeTexto.gameObject.SetActive(false);  // Ocultar el texto
+          //  }
+       // }
     }
 }

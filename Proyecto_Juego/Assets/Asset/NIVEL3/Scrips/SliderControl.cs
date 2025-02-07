@@ -50,7 +50,8 @@ public class SliderControl : MonoBehaviour
         slider.gameObject.SetActive(true); // Activamos el slider
 
         // Pausamos el juego cuando se abre el panel
-        Time.timeScale = 0f; // Pausamos el juego
+        Time.timeScale = 0f; // Pausamos el juegoç
+        Time.timeScale = 1f; // Pausamos el juego
 
         // Mostramos el valor del slider en la consola
         Debug.Log("Valor actual del Slider: " + slider.value);
@@ -93,6 +94,7 @@ public class SliderControl : MonoBehaviour
 
         // Reanudamos el juego cuando se cierra el panel
         Time.timeScale = 1f; // Reanudamos el juego
+
         Debug.Log("El panel se ha cerrado, el juego continúa.");
     }
 }

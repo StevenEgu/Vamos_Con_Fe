@@ -7,6 +7,7 @@ public class FadeOut : MonoBehaviour
     public float fadeDuration = 2f; // Duración del desvanecimiento
     private Image panelImage;
     private float targetAlpha = 0f; // El valor final de la opacidad
+    public PlayerController player; // Referencia al personaje
 
     void Start()
     {
@@ -34,5 +35,14 @@ public class FadeOut : MonoBehaviour
 
         // Asegura que el color final tenga el alpha en 0
         panelImage.color = new Color(startColor.r, startColor.g, startColor.b, targetAlpha);
+
+        // Desactiva el panel
+        gameObject.SetActive(false);
+
+        // Habilita el movimiento del personaje
+        if (player != null)
+        {
+            player.EnableMovement();
+        }
     }
 }

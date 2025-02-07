@@ -5,17 +5,17 @@ using UnityEngine;
 public class Texto_indicación_2 : MonoBehaviour
 {
     string frase = "...para romper las maderas...¡SALTA!";
-    public TMP_Text texto; // Cambiar a TMP_Text
+    public TMP_Text texto; // Referencia al texto
     public float tiempoDesvanecimiento = 1f; // Duración del desvanecimiento
     public GameObject jugador; // Referencia al jugador
-    private MonoBehaviour PlayerController; // Referencia al script de movimiento
+    private Control_niña_calle controlNiñaCalle; // Referencia al script de movimiento
 
     // Start is called before the first frame update
     void Start()
     {
-        // Obtener el componente de movimiento del jugador
-        PlayerController = jugador.GetComponent<MonoBehaviour>(); // Cambia esto por el nombre de tu script de movimiento
-        PlayerController.enabled = false; // Deshabilitar el movimiento al inicio
+        // Obtener el componente de movimiento del jugador y deshabilitarlo al inicio
+        controlNiñaCalle = jugador.GetComponent<Control_niña_calle>(); // Cambia esto por el nombre de tu script de movimiento
+        controlNiñaCalle.enabled = false; // Deshabilitar el movimiento al principio
         StartCoroutine(Reloj());
     }
 
@@ -33,7 +33,7 @@ public class Texto_indicación_2 : MonoBehaviour
         yield return StartCoroutine(FadeOut());
 
         // Rehabilitar el movimiento después del desvanecimiento
-        PlayerController.enabled = true;
+        controlNiñaCalle.ActivateMovement(); // Habilita el movimiento
     }
 
     IEnumerator FadeOut()
@@ -41,6 +41,7 @@ public class Texto_indicación_2 : MonoBehaviour
         Color originalColor = texto.color; // Obtener el color original
         float elapsedTime = 0f;
 
+        // Realizar el desvanecimiento
         while (elapsedTime < tiempoDesvanecimiento)
         {
             elapsedTime += Time.deltaTime;

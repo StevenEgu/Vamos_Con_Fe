@@ -4812,6 +4812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escenaSiguiente: 4
+  mensajeTexto: {fileID: 0}
 --- !u!1 &883222472
 GameObject:
   m_ObjectHideFlags: 0
@@ -8728,7 +8729,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635237793}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25cffbbda02761b438c4a14de9743958, type: 3}
   m_Name: 
@@ -9034,7 +9035,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6, y: 1.175}
+    oldSize: {x: 0.8, y: 1.5666667}
     newSize: {x: 0.8, y: 0.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
