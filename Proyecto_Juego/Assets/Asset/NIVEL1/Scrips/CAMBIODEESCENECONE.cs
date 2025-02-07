@@ -8,6 +8,7 @@ public class CAMBIODEESCENACONE : MonoBehaviour
 {
     // Variable para verificar si el jugador está dentro del trigger
     private bool dentroDelTrigger = false;
+    public GuardadodeEscenas guardadodeEscenas;
 
     // Variable pública para el índice de la escena que se cambiará. 
     // Esto permite que puedas asignar el índice de la escena desde el Inspector.
@@ -19,16 +20,22 @@ public class CAMBIODEESCENACONE : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< Updated upstream
         // Asegúrate de que el texto esté desactivado al principio
         if (mensajeTexto != null)
         {
             mensajeTexto.gameObject.SetActive(false);
         }
+=======
+        
+        // Inicialización si es necesario
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         // Si el jugador está dentro del trigger, y presiona la tecla 'E', cambiar de nivel
         if (dentroDelTrigger && Input.GetKeyDown(KeyCode.E))
         {
@@ -41,7 +48,14 @@ public class CAMBIODEESCENACONE : MonoBehaviour
     public void CambiarNivel()
     {
         // Cambiar al nivel especificado en la variable escenaSiguiente
+        
         SceneManager.LoadScene(escenaSiguiente);
+
+       //guardadodeEscenas.escenaActual = SceneManager.GetActiveScene().buildIndex+1;
+
+       
+
+
     }
 
     // Detectar cuando el jugador entra en el trigger
@@ -63,9 +77,10 @@ public class CAMBIODEESCENACONE : MonoBehaviour
     }
 
     // Detectar cuando el jugador sale del trigger
-    private void OnTriggerExit2D(Collider2D collision)
+   /* private void OnTriggerExit2D(Collider2D collision)
     {
         // Verificar si el jugador sale del trigger
+<<<<<<< Updated upstream
        // if (collision.gameObject.CompareTag("Player"))
       //  {
         //    Debug.Log("Jugador fuera del trigger.");
@@ -78,4 +93,12 @@ public class CAMBIODEESCENACONE : MonoBehaviour
           //  }
        // }
     }
+=======
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Jugador fuera del trigger.");
+            dentroDelTrigger = false; // Desactivar la opción de presionar "E"
+        }
+    }*/
+>>>>>>> Stashed changes
 }
