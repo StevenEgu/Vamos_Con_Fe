@@ -4,9 +4,7 @@ using UnityEngine.SceneManagement;
 public class CambioHabitacion : MonoBehaviour
 {
     public Vector3 playerSpawnPosition;  // Nueva posición donde el jugador aparecerá
-    public Vector3 inicialPosition;
     private bool dentroDelTrigger = false; // Verifica si el jugador está dentro del área del trigger
-    public GuardadodeEscenas guardadodeEscenas;
 
     public string sceneName; // Nombre de la escena a cargar
 
@@ -16,32 +14,18 @@ public class CambioHabitacion : MonoBehaviour
         // Si el jugador está dentro del trigger y presiona la tecla 'E', cambiar de nivel
         if (dentroDelTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            
             ChangeScene(sceneName);  // Cambiar a la escena especificada
         }
-    }
-    void Start()
-    {
-        Scene escena =SceneManager.GetActiveScene();
-        guardadodeEscenas.escenaActual = SceneManager.GetActiveScene().buildIndex;
-
-
     }
 
     // Método para cambiar de escena
     public void ChangeScene(string sceneName)
     {
-       
-        GameObject player = GameObject.FindWithTag("Player");
-        //guardadodeEscenas.escenaActual = SceneManager.GetActiveScene().buildIndex;
         // Guardar la posición actual del jugador antes de cambiar de escena
         if (GameManager.Instance != null)
         {
             GameManager.Instance.playerPosition = transform.position;
-            
         }
-
-       
 
         // Cargar la nueva escena
         SceneManager.LoadScene(sceneName);
@@ -50,31 +34,11 @@ public class CambioHabitacion : MonoBehaviour
     // Al cargar una nueva escena, mover al jugador a la nueva posición
     private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
     {
-
         GameObject player = GameObject.FindWithTag("Player");
-
-        if (guardadodeEscenas.escenaActual == 5)
+        if (player != null)
         {
-            player.transform.position = playerSpawnPosition;
+            player.transform.position = playerSpawnPosition;  // Mueve al jugador a la nueva posición
         }
-        else
-        {
-            player.transform.position = inicialPosition;
-        }
-
-
-       
-        
-         // Mueve al jugador a la nueva posición
-
-           
-
-       /* if (scenaJardin==SceneManager.GetActiveScene())
-        {
-
-            player.transform.position = playerSpawnPosition;
-
-        }*/
     }
 
     private void OnEnable()

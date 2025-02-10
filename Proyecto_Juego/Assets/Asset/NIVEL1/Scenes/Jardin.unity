@@ -526,25 +526,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.83061624, y: 2.731903}
   m_EdgeRadius: 0
-<<<<<<< Updated upstream
-=======
---- !u!114 &263748406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263748402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fe4048e8929cb848931863e30f2b30c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpawnPosition: {x: 0, y: 0, z: 0}
-  inicialPosition: {x: 0, y: 0, z: 0}
-  guardadodeEscenas: {fileID: 11400000, guid: 5e629be8ffbc675408bce446dbc98e05, type: 2}
-  sceneName: SALA
->>>>>>> Stashed changes
 --- !u!61 &263748407
 BoxCollider2D:
   m_ObjectHideFlags: 0
