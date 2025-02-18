@@ -1,22 +1,33 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI; // Necesario para manejar el botón
 
 public class NPC : MonoBehaviour
 {
-    [SerializeField] private TMP_Text dialoguePlayerText;  // Texto de "Presiona E para hablar"
+    [SerializeField] private TMP_Text dialoguePlayerText;
     [SerializeField] private GameObject dialoguePanel;
-    [SerializeField] private TMP_Text dialogueText;  // Texto del diálogo del NPC
+    [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
 
-    // Nuevo texto para el protagonista
-    [SerializeField] private TMP_Text protagonistText;  // Texto que dirá el protagonista al final del diálogo
-    [SerializeField] private string protagonistDialogue;  // Texto que aparecerá para el protagonista
-    [SerializeField] private float protagonistDialogueDuration = 3f;  // Duración en segundos del texto del protagonista
+    [SerializeField] private TMP_Text protagonistText;
+    [SerializeField] private string protagonistDialogue;
+    [SerializeField] private float protagonistDialogueDuration = 3f;
+
+    [SerializeField] private Button nextLevelButton; // Botón para continuar
 
     private bool isPlayerInRange;
     private bool didDialogueStart;
     private int lineIndex;
+
+    void Start()
+    {
+        // Desactivar el botón desde el inicio
+        if (nextLevelButton != null)
+        {
+            nextLevelButton.interactable = false;
+        }
+    }
 
     void Update()
     {
@@ -49,12 +60,16 @@ public class NPC : MonoBehaviour
         {
             didDialogueStart = false;
             dialoguePanel.SetActive(false);
-
-            // Mostrar el texto del protagonista después de que el NPC termine de hablar
-            ShowProtagonistDialogue();
-
-            // Desactivar el mensaje "Presiona E para hablar" después de que termine la conversación
             dialoguePlayerText.gameObject.SetActive(false);
+
+            // Desbloquear el botón antes de mostrar el diálogo del protagonista
+            if (nextLevelButton != null)
+            {
+                nextLevelButton.interactable = true;
+            }
+
+            // Mostrar el diálogo del protagonista
+            ShowProtagonistDialogue();
         }
     }
 
@@ -62,33 +77,27 @@ public class NPC : MonoBehaviour
     {
         didDialogueStart = true;
         dialoguePanel.SetActive(true);
-        dialoguePlayerText.gameObject.SetActive(false);  // Ocultar el mensaje de interacción
+        dialoguePlayerText.gameObject.SetActive(false); // Ocultamos el mensaje de interacción
         lineIndex = 0;
-        Time.timeScale = 0f;  // Pausar el juego durante el diálogo
-        Time.timeScale = 1f;  // Pausar el juego durante el diálogo
         StartCoroutine(ShowLine());
     }
 
     private IEnumerator ShowLine()
     {
-        dialogueText.text = string.Empty;
+        dialogueText.text = "";  // Limpiar el texto previo
 
+        // Escribir el texto letra por letra
         foreach (char ch in dialogueLines[lineIndex])
         {
             dialogueText.text += ch;
-            yield return new WaitForSecondsRealtime(0.05f);  // Efecto de máquina de escribir
+            yield return new WaitForSecondsRealtime(0.05f); // Efecto de máquina de escribir
         }
     }
 
     private void ShowProtagonistDialogue()
     {
-        // Asegurarse de que el texto del protagonista esté visible
         protagonistText.gameObject.SetActive(true);
-
-        // Limpiar el texto antes de comenzar a mostrarlo
         protagonistText.text = string.Empty;
-
-        // Iniciar la coroutine para mostrar el texto del protagonista con efecto de máquina de escribir
         StartCoroutine(ShowProtagonistLine());
     }
 
@@ -96,15 +105,15 @@ public class NPC : MonoBehaviour
     {
         foreach (char ch in protagonistDialogue)
         {
-            protagonistText.text += ch;  // Agregar una letra a la vez
-            yield return new WaitForSeconds(0.05f);  // Efecto de máquina de escribir
+            protagonistText.text += ch;
+            yield return new WaitForSeconds(0.05f); // Efecto de máquina de escribir
         }
 
-        // Esperar unos segundos antes de ocultar el panel
+        // Esperar algunos segundos antes de ocultar el texto del protagonista
         yield return new WaitForSeconds(protagonistDialogueDuration);
 
-        // Ocultar el texto del protagonista después del tiempo especificado
-        protagonistText.gameObject.SetActive(false);  // Desactivar el texto del protagonista
+        // Desactivar el texto del protagonista
+        protagonistText.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -112,7 +121,7 @@ public class NPC : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            dialoguePlayerText.text = "Ey...";  // Mensaje de interacción
+            dialoguePlayerText.text = "Ey...";  // Mensaje para interactuar
             dialoguePlayerText.gameObject.SetActive(true);  // Activar el mensaje de interacción
         }
     }
@@ -122,7 +131,7 @@ public class NPC : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            dialoguePlayerText.gameObject.SetActive(false);  // Desactivar el texto cuando el jugador se aleja
+            dialoguePlayerText.gameObject.SetActive(false); // Desactivar mensaje de interacción cuando el jugador se aleje
         }
     }
 }
