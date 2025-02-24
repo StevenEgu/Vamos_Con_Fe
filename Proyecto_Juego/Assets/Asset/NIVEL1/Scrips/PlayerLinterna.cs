@@ -24,7 +24,7 @@ public class PlayerLinterna : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No se ha asignado el componente Light2D en el Inspector.");
+           
         }
 
         // Si el botón es asignado, conectamos el evento al método "RecogerLinterna"
@@ -34,7 +34,7 @@ public class PlayerLinterna : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No se ha asignado el botón de la linterna en el Inspector.");
+           
         }
     }
 
