@@ -34,8 +34,34 @@ public class MOVIMIENTOJUGADOR : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         moveInput = new Vector2(moveX, moveY);
 
-        // Actualizar el parámetro "Speed" en el Animator para la animación
-        animator.SetFloat("Speed", Mathf.Abs(moveX)); // Solo se actualiza si hay movimiento horizontal
+        // Actualizar el parámetro "Speed" en el Animator para la animación de caminar a los lados
+        animator.SetFloat("Speed", Mathf.Abs(moveX));  // Movimiento horizontal
+
+        // Determinar la animación a reproducir en función del movimiento
+        if (moveX > 0) // Si el jugador se mueve a la derecha
+        {
+            animator.SetBool("IsMoving", true);
+            animator.Play("CaminarDerecha");  // Asumimos que esta es la animación de caminar hacia la derecha
+        }
+        else if (moveX < 0) // Si el jugador se mueve a la izquierda
+        {
+            animator.SetBool("IsMoving", true);
+            animator.Play("CaminarIzquierda");  // Asumimos que esta es la animación de caminar hacia la izquierda
+        }
+        else if (moveY > 0) // Si el jugador se mueve hacia arriba
+        {
+            animator.SetBool("IsMoving", true);
+            animator.Play("Arriba");  // Animación de caminar hacia arriba
+        }
+        else if (moveY < 0) // Si el jugador se mueve hacia abajo
+        {
+            animator.SetBool("IsMoving", true);
+            animator.Play("Abajo");  // Animación de caminar hacia abajo
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);  // Si no hay movimiento, ponemos IsMoving a false para ir al estado de idle
+        }
 
         // Voltear el personaje en función de la dirección
         if (moveX > 0) // Si el jugador se mueve hacia la derecha
