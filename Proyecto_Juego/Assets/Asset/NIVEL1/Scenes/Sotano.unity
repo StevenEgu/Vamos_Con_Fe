@@ -3022,6 +3022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 610004643}
   - component: {fileID: 610004642}
+  - component: {fileID: 610004644}
   m_Layer: 5
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -3063,6 +3064,23 @@ RectTransform:
   m_AnchoredPosition: {x: 1541.4302, y: 300.79312}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &610004644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610004641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed472212ef485104a815621493fa39a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshPro: {fileID: 1192710176}
+  fadeButton: {fileID: 1516472282}
+  fadeInDuration: 1
+  timeBeforeFadeOut: 2
+  fadeOutDuration: 2
 --- !u!1 &617202514
 GameObject:
   m_ObjectHideFlags: 0
