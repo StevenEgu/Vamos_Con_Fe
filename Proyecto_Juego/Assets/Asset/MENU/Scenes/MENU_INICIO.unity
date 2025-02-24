@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 27334955}
   - component: {fileID: 27334957}
   - component: {fileID: 27334956}
+  - component: {fileID: 27334958}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -342,10 +343,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 693887469}
-        m_TargetAssemblyTypeName: CAMBIODEESCENA, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 27334955}
+        m_TargetAssemblyTypeName: ButtonSoundAndChangeScene, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -406,7 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yourButton: {fileID: 27334951}
   audioSource: {fileID: 1034930182}
-  clickSound: {fileID: 8300000, guid: 1f1dae04b009ad34994dff2d1ef6045a, type: 3}
+  clickSound: {fileID: 8300000, guid: cc85e63bb1a54a343a19017ce0e2b8d1, type: 3}
   sceneToLoad: Inicio
 --- !u!114 &27334956
 MonoBehaviour:
@@ -467,6 +468,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightColor: {r: 0.5283019, g: 0, b: 0, a: 1}
   normalColor: {r: 0.5176471, g: 0.5176471, b: 0.5176471, a: 1}
+--- !u!82 &27334958
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27334949}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &42215700
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,18 +784,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 693887469}
-        m_TargetAssemblyTypeName: CAMBIODEESCENA, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CONFIGURACION
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 57575433}
         m_TargetAssemblyTypeName: ButtonSoundAndChangeScene, Assembly-CSharp
         m_MethodName: OnButtonClick
@@ -763,7 +848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yourButton: {fileID: 57575430}
   audioSource: {fileID: 1034930182}
-  clickSound: {fileID: 8300000, guid: 1f1dae04b009ad34994dff2d1ef6045a, type: 3}
+  clickSound: {fileID: 8300000, guid: cc85e63bb1a54a343a19017ce0e2b8d1, type: 3}
   sceneToLoad: CONFIGURACION
 --- !u!114 &57575434
 MonoBehaviour:
@@ -1107,7 +1192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &472154103
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1118,7 +1203,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c2298d44edff2414da258ac5e2bba9f2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7f6d3f97246816745826d9d0caa9f13a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
@@ -2148,7 +2233,7 @@ GameObject:
   - component: {fileID: 1386900160}
   - component: {fileID: 1386900159}
   - component: {fileID: 1386900158}
-  - component: {fileID: 1386900161}
+  - component: {fileID: 1386900164}
   - component: {fileID: 1386900163}
   - component: {fileID: 1386900162}
   m_Layer: 5
@@ -2222,9 +2307,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1573145946}
-        m_TargetAssemblyTypeName: SALIRDELJUEGO, Assembly-CSharp
-        m_MethodName: MostrarPanelConfirmacion
+      - m_Target: {fileID: 1386900164}
+        m_TargetAssemblyTypeName: ButtonSoundAndShowPanel, Assembly-CSharp
+        m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2272,22 +2357,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386900156}
   m_CullTransparentMesh: 1
---- !u!114 &1386900161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386900156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 393ff27ab7fd45746bffb338152e8c51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yourButton: {fileID: 1386900158}
-  audioSource: {fileID: 1034930182}
-  clickSound: {fileID: 8300000, guid: 1f1dae04b009ad34994dff2d1ef6045a, type: 3}
-  sceneToLoad: 
 --- !u!114 &1386900162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2347,6 +2416,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightColor: {r: 0.5283019, g: 0, b: 0, a: 1}
   normalColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
+--- !u!114 &1386900164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386900156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1177b983717e4438aa37e74a80748d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yourButton: {fileID: 1386900158}
+  audioSource: {fileID: 1034930182}
+  clickSound: {fileID: 8300000, guid: cc85e63bb1a54a343a19017ce0e2b8d1, type: 3}
+  panelToShow: {fileID: 1573145942}
 --- !u!1 &1529169487
 GameObject:
   m_ObjectHideFlags: 0

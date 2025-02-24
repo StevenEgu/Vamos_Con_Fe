@@ -671,15 +671,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typewriterText: {fileID: 1216770604}
   firstText: Stonebridge, 1930
-  secondText: "\xBFMam\xE1?"
+  secondText: . . .
   typingSpeed: 0.15
   pauseBetweenTexts: 2
   nextSceneName: Sotano
   audioSource: {fileID: 1308908962}
   typingSound: {fileID: 8300000, guid: 313a0ae366ee33c46b0226e857b9a032, type: 3}
-  voiceSound: {fileID: 8300000, guid: 0aba1e5c302c3b1448a5a8ad8ffe1151, type: 3}
+  voiceSound: {fileID: 8300000, guid: 2b47e9e1bf86f444498537f430c334b8, type: 3}
   fadeImage: {fileID: 837202663}
-  fadeDuration: 1.5
+  fadeDuration: 3
 --- !u!4 &1308908961
 Transform:
   m_ObjectHideFlags: 0
