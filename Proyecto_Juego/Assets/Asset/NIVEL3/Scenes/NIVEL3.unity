@@ -1204,7 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66fad8037c31a07449b13a6985c6199a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escenaSiguiente: 12
+  escenaSiguiente: 11
   mensajeTexto: {fileID: 0}
 --- !u!61 &381553620
 BoxCollider2D:
