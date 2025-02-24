@@ -27,13 +27,27 @@ public class SofaDesbloqueaCocina : MonoBehaviour
     void AbrirPanel()
     {
         panelLlave.SetActive(true);
+        Debug.Log("Panel de la llave abierto."); // Debug Log para ver si se ejecuta
     }
 
     // Función que activa el botón del cajón de cocina, cierra el panel, y destruye los botones
     void ActivarLlave()
     {
+        // Debug Log para verificar si se está activando la función correctamente
+        Debug.Log("Botón llave presionado. Activando botón cajón cocina.");
+
         // Habilitar el botón del cajón de cocina
         botonCajonCocina.interactable = true;
+
+        // Verificar si el botón Cajón Cocina es interactuable
+        if (botonCajonCocina.interactable)
+        {
+            Debug.Log("Botón cajón cocina ahora interactuable.");
+        }
+        else
+        {
+            Debug.Log("Botón cajón cocina no es interactuable.");
+        }
 
         // Cerrar el panel de la llave
         panelLlave.SetActive(false);
@@ -53,7 +67,7 @@ public class SofaDesbloqueaCocina : MonoBehaviour
         textoDesvanecerse.gameObject.SetActive(true);
 
         // Opcional: Aquí puedes ajustar el texto que aparece
-        textoDesvanecerse.text = "La llave de la cocina ha aparecido! Es momento de abrir el cajón.";
+        textoDesvanecerse.text = "¡La llave ha sido encontrada!";
 
         // Esperar un poco para mostrar el texto
         yield return new WaitForSeconds(2f); // Esperar 2 segundos
