@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -9,18 +9,24 @@ public class DIALOGOSIMPLE : MonoBehaviour
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
 
-    // Referencia al objeto con el collider que quieres destruir
     [SerializeField] private GameObject colliderToDestroy;
 
-    // Nueva referencia para el panel de texto del personaje principal
     [SerializeField] private GameObject playerDialoguePanel;
     [SerializeField] private TMP_Text playerDialogueText;
-    [SerializeField] private string playerDialogue;  // Texto que se mostrará para el personaje principal
-    [SerializeField] private float playerDialogueDuration = 3f;  // Duración en segundos antes de ocultar el panel
+    [SerializeField] private string playerDialogue;
+    [SerializeField] private float playerDialogueDuration = 3f;
 
     private bool isPlayerInRange;
     private bool didDialogueStart;
     private int lineIndex;
+
+    private MOVIMIENTOJUGADOR movimientoJugador; // Referencia al script de movimiento
+
+    void Start()
+    {
+        // Buscar el script de movimiento en el jugador
+        movimientoJugador = FindObjectOfType<MOVIMIENTOJUGADOR>();
+    }
 
     void Update()
     {
@@ -56,13 +62,11 @@ public class DIALOGOSIMPLE : MonoBehaviour
             dialoguePlayer.SetActive(true);
             Time.timeScale = 1f;
 
-            // Destruir el collider al terminar el diálogo
             if (colliderToDestroy != null)
             {
                 Destroy(colliderToDestroy);
             }
 
-            // Activar el panel de texto del personaje principal
             ShowPlayerDialogue();
         }
     }
@@ -73,34 +77,33 @@ public class DIALOGOSIMPLE : MonoBehaviour
         dialoguePanel.SetActive(true);
         dialoguePlayer.SetActive(false);
         lineIndex = 0;
-        Time.timeScale = 0f;  // Pausar la escena mientras se muestra el diálogo
+        Time.timeScale = 0f;
         StartCoroutine(ShowLine());
     }
 
     private IEnumerator ShowLine()
     {
         dialogueText.text = string.Empty;
-
         foreach (char ch in dialogueLines[lineIndex])
         {
             dialogueText.text += ch;
-            yield return new WaitForSecondsRealtime(0.05f);  // Efecto de máquina de escribir (no se ve afectado por Time.timeScale)
+            yield return new WaitForSecondsRealtime(0.05f);
         }
-
-        // Esperamos a que termine el texto antes de reanudar el juego
-        yield return new WaitForSecondsRealtime(0.5f); // Un pequeño retraso al final del diálogo, ajustable si quieres
-        Time.timeScale = 1f;  // Reanudar el juego después de mostrar el texto
+        yield return new WaitForSecondsRealtime(0.5f);
+        Time.timeScale = 1f;
     }
 
     private void ShowPlayerDialogue()
     {
-        // Mostrar el panel del personaje principal
         playerDialoguePanel.SetActive(true);
-
-        // Limpiar el texto antes de comenzar a mostrarlo
         playerDialogueText.text = string.Empty;
 
-        // Iniciar la coroutine para mostrar el texto del personaje principal con efecto de máquina de escribir
+        // ðŸ”¥ **Bloquear movimiento**
+        if (movimientoJugador != null)
+        {
+            movimientoJugador.enabled = false;
+        }
+
         StartCoroutine(ShowPlayerLine());
     }
 
@@ -108,18 +111,19 @@ public class DIALOGOSIMPLE : MonoBehaviour
     {
         foreach (char ch in playerDialogue)
         {
-            playerDialogueText.text += ch;  // Agregar una letra a la vez
-            yield return new WaitForSecondsRealtime(0.05f);  // Efecto de máquina de escribir (no se ve afectado por Time.timeScale)
+            playerDialogueText.text += ch;
+            yield return new WaitForSecondsRealtime(0.05f);
         }
 
-        // Esperar unos segundos antes de ocultar el panel
         yield return new WaitForSeconds(playerDialogueDuration);
 
-        // Reanudar el juego después de que se haya mostrado el diálogo
-        Time.timeScale = 1f;
-
-        // Ocultar el panel después del tiempo especificado
         playerDialoguePanel.SetActive(false);
+
+        // ðŸ”¥ **Desbloquear movimiento**
+        if (movimientoJugador != null)
+        {
+            movimientoJugador.enabled = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

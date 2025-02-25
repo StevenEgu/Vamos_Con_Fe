@@ -5,6 +5,7 @@ public class BotonControl : MonoBehaviour
 {
     public Button botonAClickear;  // El botón que será destruido
     public Button botonDestino;    // El botón que será activado después de destruir el actual
+    public AudioSource sonidoLibro; // Referencia al AudioSource para reproducir el sonido
 
     // Método que se llama cuando el botón es presionado
     public void OnButtonClick()
@@ -31,6 +32,17 @@ public class BotonControl : MonoBehaviour
         else
         {
             Debug.LogWarning("No se asignó un botón a destruir.");
+        }
+
+        // Verificar si el AudioSource está asignado y reproducir el sonido
+        if (sonidoLibro != null)
+        {
+            sonidoLibro.Play();  // Reproducir el sonido cuando el jugador coja el libro
+            Debug.Log("Sonido del libro reproducido.");
+        }
+        else
+        {
+            Debug.LogWarning("No se asignó un AudioSource para el sonido.");
         }
     }
 }
