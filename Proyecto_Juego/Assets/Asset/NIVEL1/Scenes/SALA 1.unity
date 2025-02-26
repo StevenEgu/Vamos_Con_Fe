@@ -5965,7 +5965,7 @@ Transform:
   m_GameObject: {fileID: 934354195}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 39.07, y: 1.28, z: -10}
+  m_LocalPosition: {x: 38.18, y: 1.3, z: -10}
   m_LocalScale: {x: 33.740288, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7467,7 +7467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e44225b17d1a143bb5cc17acfdf4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linternaLuz: {fileID: 1647844834}
+  linternaObject: {fileID: 0}
   tiempoEntreParpadeos: 3
   botonLinterna: {fileID: 1492463013}
 --- !u!1 &1140580066
@@ -10467,7 +10467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1647844832
 Transform:
   m_ObjectHideFlags: 0
@@ -12499,7 +12499,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.53333336, y: 1.0444444}
+    oldSize: {x: 0.8, y: 1.5666667}
     newSize: {x: 0.8, y: 0.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -12523,6 +12523,7 @@ MonoBehaviour:
   lives: 0
   DescripcionJugador: 
   VelocidadJugador: 8
+  sonidoPasos: {fileID: 0}
 --- !u!212 &2024665095
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12624,7 +12625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e44225b17d1a143bb5cc17acfdf4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linternaLuz: {fileID: 1647844834}
+  linternaObject: {fileID: 1647844831}
   tiempoEntreParpadeos: 3
   botonLinterna: {fileID: 0}
 --- !u!1 &2035542242
