@@ -570,8 +570,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -671,15 +671,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typewriterText: {fileID: 1216770604}
   firstText: Stonebridge, 1930
-  secondText: . . .
-  typingSpeed: 0.15
+  secondText: CAP I "El Inicio del Fin"
+  typingSpeed: 0.2
   pauseBetweenTexts: 2
   nextSceneName: Sotano
   audioSource: {fileID: 1308908962}
   typingSound: {fileID: 8300000, guid: 313a0ae366ee33c46b0226e857b9a032, type: 3}
   voiceSound: {fileID: 8300000, guid: 2b47e9e1bf86f444498537f430c334b8, type: 3}
   fadeImage: {fileID: 837202663}
-  fadeDuration: 3
+  fadeDuration: 2
 --- !u!4 &1308908961
 Transform:
   m_ObjectHideFlags: 0

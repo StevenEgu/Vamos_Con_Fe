@@ -10,7 +10,7 @@ public class TypewriterEffect : MonoBehaviour
     public string firstText = "Bienvenido al juego."; // Primer texto.
     public string secondText = "Prepárate para la aventura."; // Segundo texto.
     public float typingSpeed = 0.05f; // Velocidad de escritura.
-    public float pauseBetweenTexts = 1.0f; // Pausa entre textos.
+    public float pauseBetweenTexts = 0.5f; // Pausa más corta entre textos.
     public string nextSceneName = "Sotano"; // Nombre de la siguiente escena.
 
     public AudioSource audioSource; // Fuente de audio para reproducir sonidos.
@@ -33,25 +33,25 @@ public class TypewriterEffect : MonoBehaviour
         // Mostrar el primer texto con sonido de escribir.
         yield return StartCoroutine(ShowText(firstText, true, false)); // Sonido de escribir, pero sin voz.
 
-        // Pausa entre los textos.
+        // Pausa más corta entre los textos.
         yield return new WaitForSeconds(pauseBetweenTexts);
 
         // Borrar el texto antes del siguiente.
         typewriterText.text = "";
 
-        // Mostrar el segundo texto con sonido de voz.
-        yield return StartCoroutine(ShowText(secondText, false, true)); // Solo sonido de voz.
+        // Mostrar el segundo texto inmediatamente y desvanecerlo.
+        yield return StartCoroutine(ShowSecondTextWithFade(secondText));
 
-        // Pausa antes de cambiar de escena.
-        yield return new WaitForSeconds(pauseBetweenTexts);
+        // Pausa breve antes de cambiar de escena.
+        yield return new WaitForSeconds(0.2f); // Pausa reducida.
 
-        // Realizar fade-out antes de cambiar la escena.
+        // Realizar fade-out rápido antes de cambiar la escena.
         yield return StartCoroutine(FadeOut());
 
         // Cambiar a la siguiente escena.
         SceneManager.LoadScene(nextSceneName);
 
-        // Realizar fade-in después de cargar la nueva escena.
+        // Realizar fade-in rápido después de cargar la nueva escena.
         yield return StartCoroutine(FadeIn());
     }
 
@@ -69,7 +69,6 @@ public class TypewriterEffect : MonoBehaviour
             {
                 isTypingSoundPlayed = true;
                 audioSource.PlayOneShot(typingSound);
-                Debug.Log("Reproduciendo sonido de escribir...");
             }
 
             // Reproducir sonido de voz solo una vez durante el segundo texto.
@@ -77,17 +76,9 @@ public class TypewriterEffect : MonoBehaviour
             {
                 isVoiceSoundPlayed = true;
                 audioSource.PlayOneShot(voiceSound);
-                Debug.Log("Reproduciendo sonido de voz...");
             }
 
             yield return new WaitForSeconds(typingSpeed);
-        }
-
-        // Detener el sonido de escribir una vez que se termine el primer texto.
-        if (isTypingSoundPlayed)
-        {
-            audioSource.Stop(); // Detener el audio de escribir.
-            Debug.Log("Sonido de escribir detenido.");
         }
 
         // Resetear las variables para el siguiente texto.
@@ -95,33 +86,66 @@ public class TypewriterEffect : MonoBehaviour
         isVoiceSoundPlayed = false;
     }
 
+    // Mostrar el segundo texto inmediatamente y desvanecerlo con el mismo efecto que en el script original.
+    IEnumerator ShowSecondTextWithFade(string text)
+    {
+        typewriterText.text = text; // Aparece el segundo texto inmediatamente.
+        Color startColor = typewriterText.color;
+        float timeElapsed = 0f;
+
+        // Empezamos el desvanecimiento del texto con un efecto de escala
+        while (timeElapsed < fadeDuration)
+        {
+            timeElapsed += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, timeElapsed / fadeDuration);
+            typewriterText.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
+
+            // Efecto de escalado para hacer el texto más llamativo durante el fade-out
+            float scale = Mathf.Lerp(1f, 1.2f, timeElapsed / fadeDuration);
+            typewriterText.transform.localScale = new Vector3(scale, scale, 1f);
+
+            yield return null;
+        }
+
+        // Asegurarse de que el texto se quede completamente invisible
+        typewriterText.color = new Color(startColor.r, startColor.g, startColor.b, 0f);
+        typewriterText.transform.localScale = new Vector3(1f, 1f, 1f); // Restablecer escala
+    }
+
+    // Asegúrate de que el fade-out también se aplique al panel oscuro (Image).
     IEnumerator FadeOut()
     {
         float timeElapsed = 0f;
 
-        // Empezamos con la opacidad del panel a 0 (totalmente transparente).
+        Color panelStartColor = fadeImage.color; // Color inicial del panel.
         while (timeElapsed < fadeDuration)
         {
             timeElapsed += Time.deltaTime;
-            fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, Mathf.Lerp(0f, 1f, timeElapsed / fadeDuration));
+            float alpha = Mathf.Lerp(1f, 0f, timeElapsed / fadeDuration); // De opaco a transparente.
+            fadeImage.color = new Color(panelStartColor.r, panelStartColor.g, panelStartColor.b, alpha); // Aplica alpha al panel.
+
             yield return null;
         }
 
-        fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 1f); // Asegurarnos de que quede 100% opaco al final.
+        // Asegurarse de que el panel quede completamente transparente
+        fadeImage.color = new Color(panelStartColor.r, panelStartColor.g, panelStartColor.b, 0f);
     }
 
     IEnumerator FadeIn()
     {
         float timeElapsed = 0f;
 
-        // Empezamos con la opacidad del panel a 1 (totalmente opaco).
+        Color panelStartColor = fadeImage.color; // Color inicial del panel.
         while (timeElapsed < fadeDuration)
         {
             timeElapsed += Time.deltaTime;
-            fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, Mathf.Lerp(1f, 0f, timeElapsed / fadeDuration));
+            float alpha = Mathf.Lerp(0f, 1f, timeElapsed / fadeDuration); // De transparente a opaco.
+            fadeImage.color = new Color(panelStartColor.r, panelStartColor.g, panelStartColor.b, alpha); // Aplica alpha al panel.
+
             yield return null;
         }
 
-        fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0f); // Asegurarnos de que quede totalmente transparente al final.
+        // Asegurarse de que el panel quede completamente opaco
+        fadeImage.color = new Color(panelStartColor.r, panelStartColor.g, panelStartColor.b, 1f);
     }
 }
