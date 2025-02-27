@@ -1,68 +1,99 @@
 using UnityEngine;
+using UnityEngine.UI;  // Para controlar la imagen de transición
 using TMPro;
+using System.Collections;
 
 public class TeleportTrigger : MonoBehaviour
 {
-    public Transform targetLocation;  // El lugar al que el jugador será teletransportado
-    public string message = "Presiona E para teletransportarte";  // El mensaje que aparecerá
-    private bool playerInRange = false;  // Para saber si el jugador está en el trigger
+    public Transform targetLocation;  // Lugar de teletransporte
+    public string message = "Presiona F para subir las escaleras";  // Mensaje en pantalla
+    private bool playerInRange = false;  // Control de colisión con el trigger
 
-    public TextMeshProUGUI messageText;  // Referencia al componente TextMeshProUGUI donde se mostrará el mensaje
+    public TextMeshProUGUI messageText;  // UI para el mensaje
+    public AudioSource teleportSound;  // Sonido de teletransporte
+    public float teleportDelay = 1.5f;  // Tiempo de espera antes de teletransportar
+    public Image transitionImage;  // Imagen negra para la transición
 
-    // Se llama cuando el jugador entra en el trigger
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))  // Asegúrate de que el jugador tiene la etiqueta "Player"
+        if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            ShowMessage();  // Mostrar el mensaje
+            ShowMessage();
         }
     }
 
-    // Se llama cuando el jugador sale del trigger
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            HideMessage();  // Ocultar el mensaje
+            HideMessage();
         }
     }
 
     void Update()
     {
-        // Si el jugador está en el trigger y presiona la tecla 'E'
         if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
-            TeleportPlayer();  // Teletransportar al jugador
+            StartCoroutine(TeleportWithTransition());
         }
     }
 
-    // Método para teletransportar al jugador
-    private void TeleportPlayer()
+    private IEnumerator TeleportWithTransition()
     {
+        if (teleportSound != null)
+        {
+            teleportSound.Play();  // Reproduce el sonido
+        }
+
+        yield return StartCoroutine(FadeTransition(true));  // Oscurece la pantalla
+
+        yield return new WaitForSeconds(teleportDelay);  // Espera el tiempo del TP
+
         if (targetLocation != null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.transform.position = targetLocation.position;  // Cambia la posición del jugador
+            player.transform.position = targetLocation.position;  // Teletransportar al jugador
+        }
+
+        yield return StartCoroutine(FadeTransition(false));  // Vuelve a la normalidad
+    }
+
+    private IEnumerator FadeTransition(bool fadeIn)
+    {
+        float alpha = fadeIn ? 0 : 1;
+        float targetAlpha = fadeIn ? 1 : 0;
+        float duration = 0.8f;  // Tiempo de la transición
+        float time = 0;
+
+        if (transitionImage != null)
+        {
+            while (time < duration)
+            {
+                time += Time.deltaTime;
+                float newAlpha = Mathf.Lerp(alpha, targetAlpha, time / duration);
+                transitionImage.color = new Color(0, 0, 0, newAlpha);
+                yield return null;
+            }
+
+            transitionImage.color = new Color(0, 0, 0, targetAlpha);
         }
     }
 
-    // Método para mostrar el mensaje
     private void ShowMessage()
     {
         if (messageText != null)
         {
-            messageText.text = message;  // Asigna el texto del mensaje
+            messageText.text = message;
         }
     }
 
-    // Método para ocultar el mensaje
     private void HideMessage()
     {
         if (messageText != null)
         {
-            messageText.text = "";  // Limpia el texto
+            messageText.text = "";
         }
     }
 }

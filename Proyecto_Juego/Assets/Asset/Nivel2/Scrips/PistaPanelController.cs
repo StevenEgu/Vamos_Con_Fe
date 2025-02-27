@@ -8,6 +8,9 @@ public class PistaPanelController : MonoBehaviour
     public float closeTime = 3f; // Tiempo antes de cerrar el panel
     private CanvasGroup canvasGroup;
 
+    public AudioSource audioSource; // Componente de AudioSource
+    public AudioClip buttonSound; // Sonido del botón
+
     void Start()
     {
         // Asegurar que el panel esté activo para configurar CanvasGroup correctamente
@@ -27,13 +30,33 @@ public class PistaPanelController : MonoBehaviour
 
         // Ahora sí, desactivar el panel después de la configuración inicial
         pistaPanel.SetActive(false);
+
+        // Asegurar que el AudioSource está listo
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.playOnAwake = false;
+        audioSource.clip = buttonSound;
     }
 
     public void ShowHint()
     {
+        // Reproducir sonido correctamente
+        PlaySound();
+
         StopAllCoroutines(); // Detener cualquier animación en curso
         pistaPanel.SetActive(true);
         StartCoroutine(FadeInPanel());
+    }
+
+    private void PlaySound()
+    {
+        if (audioSource == null || buttonSound == null) return; // Evitar errores
+
+        // Forzar la reproducción inmediata
+        audioSource.Stop();
+        audioSource.Play();
     }
 
     IEnumerator FadeInPanel()

@@ -408,7 +408,7 @@ MonoBehaviour:
   yourButton: {fileID: 27334951}
   audioSource: {fileID: 1034930182}
   clickSound: {fileID: 8300000, guid: cc85e63bb1a54a343a19017ce0e2b8d1, type: 3}
-  sceneToLoad: Inicio
+  sceneToLoad: Sotano
 --- !u!114 &27334956
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -67,7 +67,7 @@ public class SofaDesbloqueaCocina : MonoBehaviour
         textoDesvanecerse.gameObject.SetActive(true);
 
         // Opcional: Aquí puedes ajustar el texto que aparece
-        textoDesvanecerse.text = "¡La llave ha sido encontrada!";
+        textoDesvanecerse.text = "¡La llave de la cocina ha aparecido! Es momento de abrir el cajón.!";
 
         // Esperar un poco para mostrar el texto
         yield return new WaitForSeconds(2f); // Esperar 2 segundos
