@@ -1,22 +1,25 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro; // Asegúrate de incluir TextMeshPro
+using UnityEngine.UI; // Asegúrate de incluir esta referencia para trabajar con UI
+using TMPro; // Si necesitas TextMeshPro
 using System.Collections; // Importa el namespace necesario para IEnumerator
 
 public class SofaDesbloqueaCocina : MonoBehaviour
 {
-    // Referencias a los botones, panel y texto
+    // Referencias a los botones, panel y otros componentes
     public Button botonSofa;
     public Button botonLlave;
-    public Button botonCajonCocina;
+    public Button botonCajonCocina; // Botón que queremos activar
     public GameObject panelLlave;
-    public TextMeshProUGUI textoDesvanecerse; // Referencia al componente de texto
+    public Button botonDesactivado; // Referencia al botón desactivado que quieres activar
 
     private void Start()
     {
-        // Asegúrate de que el panel y el texto estén ocultos al principio
+        // Asegúrate de que el panel y el botón desactivado estén ocultos al principio
         panelLlave.SetActive(false);
-        textoDesvanecerse.gameObject.SetActive(false); // Desactivar el texto al inicio
+        if (botonDesactivado != null)
+        {
+            botonDesactivado.gameObject.SetActive(false); // Desactivar el botón inicialmente
+        }
 
         // Asignamos las funciones a los botones
         botonSofa.onClick.AddListener(AbrirPanel);
@@ -52,21 +55,14 @@ public class SofaDesbloqueaCocina : MonoBehaviour
         // Cerrar el panel de la llave
         panelLlave.SetActive(false);
 
-        // Mostrar el texto sin que desaparezca
-        MostrarTexto();
+        // Activar el botón desactivado
+        if (botonDesactivado != null)
+        {
+            botonDesactivado.gameObject.SetActive(true); // Activar el botón desactivado
+        }
 
         // Destruir los botones (Botón Sofá y Botón Llave)
         Destroy(botonSofa.gameObject);  // Destruir el botón Sofá
         Destroy(botonLlave.gameObject); // Destruir el botón Llave
-    }
-
-    // Corutina para mostrar el texto
-    void MostrarTexto()
-    {
-        // Hacer visible el texto
-        textoDesvanecerse.gameObject.SetActive(true);
-
-        // Opcional: Aquí puedes ajustar el texto que aparece
-        textoDesvanecerse.text = "¡La llave de la cocina ha aparecido! Es momento de abrir el cajón.!";
     }
 }
