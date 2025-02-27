@@ -96,9 +96,13 @@ public class GeneratorManager : MonoBehaviour
         if (panelOscuridad != null)
         {
             panelOscuridad.SetActive(false);  // Desactiva el panel de oscuridad
+            Debug.Log("Panel de oscuridad desactivado.");
+        }
+        else
+        {
+            Debug.LogWarning("El panel de oscuridad no está asignado.");
         }
 
-        Debug.Log("Panel cerrado porque el video ha terminado.");
     }
 
     public void AbrirPanel()
