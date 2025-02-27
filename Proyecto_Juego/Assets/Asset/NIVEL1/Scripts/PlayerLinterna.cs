@@ -20,6 +20,7 @@ public class PlayerLinterna : MonoBehaviour
         if (linternaObject != null)
         {
             linternaObject.SetActive(false); // Apagamos el GameObject al inicio
+            Debug.Log("Linterna desactivada al inicio.");
         }
         else
         {
@@ -30,6 +31,7 @@ public class PlayerLinterna : MonoBehaviour
         if (botonLinterna != null)
         {
             botonLinterna.onClick.AddListener(RecogerLinterna);
+            Debug.Log("Botón de linterna asignado y evento conectado.");
         }
         else
         {
@@ -43,23 +45,32 @@ public class PlayerLinterna : MonoBehaviour
         if (tieneLinterna && Input.GetKeyDown(KeyCode.Q))
         {
             linternaEncendida = !linternaEncendida;
+            Debug.Log($"Tecla Q presionada. Linterna Encendida: {linternaEncendida}");
 
             if (linternaEncendida)
             {
-                // Detener cualquier parpadeo anterior
+                // Si la linterna se enciende, reiniciamos el parpadeo
                 if (parpadeoCoroutine != null)
+                {
                     StopCoroutine(parpadeoCoroutine);
+                    Debug.Log("Corutina de parpadeo detenida.");
+                }
 
                 // Iniciar el parpadeo con la linterna encendida
                 parpadeoCoroutine = StartCoroutine(ParpadeoInicialYContinuo());
+                Debug.Log("Corutina de parpadeo iniciada.");
             }
             else
             {
-                // Detener cualquier parpadeo y apagar la linterna
+                // Si la linterna se apaga, detenemos el parpadeo
                 if (parpadeoCoroutine != null)
+                {
                     StopCoroutine(parpadeoCoroutine);
+                    Debug.Log("Corutina de parpadeo detenida.");
+                }
 
                 linternaObject.SetActive(false); // Desactiva el GameObject de la linterna
+                Debug.Log("Linterna apagada.");
             }
         }
     }
@@ -72,6 +83,7 @@ public class PlayerLinterna : MonoBehaviour
             tieneLinterna = true;
             botonLinterna.gameObject.SetActive(false); // Desactiva el botón después de hacer clic
             linternaObject.SetActive(true); // Activa el GameObject de la linterna
+            Debug.Log("Linterna recogida. El botón de linterna se desactiva.");
         }
     }
 
@@ -85,6 +97,7 @@ public class PlayerLinterna : MonoBehaviour
         }
 
         // 🔥 Parpadeo inicial (3 destellos)
+        Debug.Log("Iniciando parpadeo inicial...");
         for (int i = 0; i < 3; i++)
         {
             linternaObject.SetActive(false);
@@ -94,12 +107,14 @@ public class PlayerLinterna : MonoBehaviour
         }
 
         // 🔥 Parpadeo ocasional mientras esté encendida
+        Debug.Log("Iniciando parpadeo continuo...");
         while (linternaEncendida)
         {
             yield return new WaitForSeconds(tiempoEntreParpadeos); // Espera el tiempo configurado
 
             // Hace 2-3 parpadeos aleatorios
             int numParpadeos = Random.Range(2, 4);
+            Debug.Log($"Haciendo {numParpadeos} parpadeos aleatorios.");
             for (int i = 0; i < numParpadeos; i++)
             {
                 linternaObject.SetActive(false);
