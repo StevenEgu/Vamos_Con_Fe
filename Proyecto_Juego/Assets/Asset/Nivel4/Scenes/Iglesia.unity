@@ -1673,6 +1673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 2
+  fadeText: {fileID: 0}
   player: {fileID: 0}
 --- !u!114 &178533454
 MonoBehaviour:
