@@ -52,8 +52,8 @@ public class SofaDesbloqueaCocina : MonoBehaviour
         // Cerrar el panel de la llave
         panelLlave.SetActive(false);
 
-        // Mostrar el texto y luego hacer que se desvanezca
-        StartCoroutine(MostrarTexto());
+        // Mostrar el texto sin que desaparezca
+        MostrarTexto();
 
         // Destruir los botones (Botón Sofá y Botón Llave)
         Destroy(botonSofa.gameObject);  // Destruir el botón Sofá
@@ -61,32 +61,12 @@ public class SofaDesbloqueaCocina : MonoBehaviour
     }
 
     // Corutina para mostrar el texto
-    IEnumerator MostrarTexto()
+    void MostrarTexto()
     {
         // Hacer visible el texto
         textoDesvanecerse.gameObject.SetActive(true);
 
         // Opcional: Aquí puedes ajustar el texto que aparece
         textoDesvanecerse.text = "¡La llave de la cocina ha aparecido! Es momento de abrir el cajón.!";
-
-        // Esperar un poco para mostrar el texto
-        yield return new WaitForSeconds(2f); // Esperar 2 segundos
-
-        // Desvanecer el texto
-        float tiempoDesvanecer = 1f; // Tiempo de desvanecimiento
-        float t = 0;
-
-        // Desvanecer el texto
-        Color textoColor = textoDesvanecerse.color;
-        while (t < tiempoDesvanecer)
-        {
-            t += Time.deltaTime;
-            float alpha = Mathf.Lerp(1, 0, t / tiempoDesvanecer); // De opaco a transparente
-            textoDesvanecerse.color = new Color(textoColor.r, textoColor.g, textoColor.b, alpha);
-            yield return null;
-        }
-
-        // Desactivar el texto cuando termine de desvanecerse
-        textoDesvanecerse.gameObject.SetActive(false);
     }
 }
