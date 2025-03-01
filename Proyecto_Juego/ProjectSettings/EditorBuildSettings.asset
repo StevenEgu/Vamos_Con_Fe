@@ -21,8 +21,8 @@ EditorBuildSettings:
     path: Assets/Asset/NIVEL1/Scenes/Jardin.unity
     guid: 48eb90415c0cd074e9e44c802d601f76
   - enabled: 1
-    path: Assets/Asset/NIVEL1/Scenes/SALA 1.unity
-    guid: 9cdcd79e76edc4e458900add0cb00810
+    path: Assets/Asset/NIVEL1/Scenes/SALA 2.unity
+    guid: 49a34b672abf53e4da9fddb6a39a3119
   - enabled: 1
     path: Assets/Asset/Nivel2/Scenes/Escena_Calle.unity
     guid: 13c97e8a62f728041b60938409f68118
