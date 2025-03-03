@@ -16,15 +16,25 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        // Habilitar movimiento al inicio para pruebas
+        EnableMovement();
     }
 
     void Update()
     {
-        if (!canMove) return;  // Bloquear movimiento hasta que se habilite
+        if (!canMove)
+        {
+            Debug.Log("Movimiento deshabilitado");
+            return;  // Bloquear movimiento hasta que se habilite
+        }
 
         // Movimiento horizontal
         float move = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
+
+        // Verificar el movimiento
+        Debug.Log("Movimiento en el eje X: " + move);
 
         // Invertir dirección del personaje
         if (move != 0)
@@ -35,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
         // Comprobar si está en el suelo
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        Debug.Log("Está en el suelo: " + isGrounded);
         animator.SetBool("isGrounded", isGrounded);
 
         // Salto
@@ -42,6 +53,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             animator.SetTrigger("Jump");
+            Debug.Log("Salto realizado");
         }
     }
 
@@ -49,5 +61,6 @@ public class PlayerController : MonoBehaviour
     public void EnableMovement()
     {
         canMove = true;
+        Debug.Log("Movimiento habilitado");
     }
 }
