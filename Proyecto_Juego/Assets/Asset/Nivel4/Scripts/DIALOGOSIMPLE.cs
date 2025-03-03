@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DIALOGOSIMPLE : MonoBehaviour
 {
-    [SerializeField] private GameObject dialoguePlayer;
+    [SerializeField] private TMP_Text dialoguePlayerText;  // Cambiado a TMP_Text
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
@@ -59,7 +59,7 @@ public class DIALOGOSIMPLE : MonoBehaviour
         {
             didDialogueStart = false;
             dialoguePanel.SetActive(false);
-            dialoguePlayer.SetActive(true);
+            dialoguePlayerText.gameObject.SetActive(true);  // Activa el TMP_Text para el jugador
             Time.timeScale = 1f;
 
             if (colliderToDestroy != null)
@@ -75,7 +75,7 @@ public class DIALOGOSIMPLE : MonoBehaviour
     {
         didDialogueStart = true;
         dialoguePanel.SetActive(true);
-        dialoguePlayer.SetActive(false);
+        dialoguePlayerText.gameObject.SetActive(false);  // Desactiva el TMP_Text para el jugador
         lineIndex = 0;
         Time.timeScale = 0f;
         StartCoroutine(ShowLine());
@@ -131,7 +131,7 @@ public class DIALOGOSIMPLE : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            dialoguePlayer.SetActive(true);
+            dialoguePlayerText.gameObject.SetActive(true);  // Activa el TMP_Text cuando el jugador entra
         }
     }
 
@@ -140,7 +140,7 @@ public class DIALOGOSIMPLE : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            dialoguePlayer.SetActive(false);
+            dialoguePlayerText.gameObject.SetActive(false);  // Desactiva el TMP_Text cuando el jugador sale
         }
     }
 }
